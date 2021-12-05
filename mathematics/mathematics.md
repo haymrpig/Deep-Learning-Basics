@@ -14,7 +14,7 @@
 
   ( 접선의 기울기를 나타낸다. )
 
-<img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211205234957106.png" alt="image-20211205234957106" style="zoom: 67%;" />
+![image](https://user-images.githubusercontent.com/71866756/144754284-27e41f3b-336e-459c-97d4-23aabbcdc07e.png)
 
 - **미분 코드**
 
@@ -46,7 +46,7 @@
   -(df/dx, df/dy)
   $$
 
-  <img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211206001749978.png" alt="image-20211206001749978" style="zoom:67%;" />![image-20211206001643670](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211206001643670.png)
+  ![image](https://user-images.githubusercontent.com/71866756/144754317-07b5d5aa-0216-4bf9-810e-b71dff8a48e6.png)
 
   - 경사상승법 (극대값) : 현재 값 + 미분값
 
@@ -54,7 +54,7 @@
   (df/dx, df/dy)
   $$
 
-  <img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211206001536841.png" alt="image-20211206001536841" style="zoom: 67%;" />![image-20211206001643670](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211206001643670.png)
+  ![image](https://user-images.githubusercontent.com/71866756/144754463-15639a92-587c-4021-95d1-49e33341bf5a.png)
 
 
 
@@ -66,7 +66,7 @@
 
   
 
-  <img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211206002245517.png" alt="image-20211206002245517" style="zoom:50%;" />
+    ![image](https://user-images.githubusercontent.com/71866756/144754367-c7fd3533-b76b-4dff-a640-d98090081502.png)
 
   
 
@@ -78,7 +78,7 @@
 
   
 
-  <img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211206002351336.png" alt="image-20211206002351336" style="zoom:50%;" />
+  ![image](https://user-images.githubusercontent.com/71866756/144754387-e0162cfe-fec8-464d-8462-c0f0a685e402.png)
 
   
 
@@ -95,13 +95,12 @@
 
     - 조건부 확률로 구한 결과
 
-      ![image-20211206003550478](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211206003550478.png)
+      ![image](https://user-images.githubusercontent.com/71866756/144754406-f16d50db-23b1-4287-9563-ea46264c90e4.png)
+
 
     - Z의 개입을 제거(조정)한 결과
 
-      ![image-20211206003719507](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211206003719507.png)
-
-      ![image-20211206003812015](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211206003812015.png)
+      ![image](https://user-images.githubusercontent.com/71866756/144754416-077a0e5e-34fc-4ce7-9f15-ff3c49942367.png)
 
       
 
