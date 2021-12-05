@@ -24,19 +24,17 @@
 
     데이터 입력에 따라 kernel의 크기가 변하지 않는다. 
 
-<img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211206012221069.png" alt="image-20211206012221069" style="zoom:67%;" />
+![image](https://user-images.githubusercontent.com/71866756/144757713-86bded0b-92fc-4224-b5bd-12822504ed28.png)
 
 - **출력 크기 계산**
 
   - 입력 크기 : (H,W) , 커널 크기 : (Kh, Kw), 출력 크기 : (Oh, Ow)
 
-    <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211206012352563.png" alt="image-20211206012352563" style="zoom:67%;" />
-
-    <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211206013409413.png" alt="image-20211206013409413" style="zoom:67%;" />
+    ![image](https://user-images.githubusercontent.com/71866756/144757738-3cb0c1b2-71eb-40dd-8778-526cc9148cbc.png)
 
   - 채널이 여러개인 경우 커널의 채널 수 = 입력의 채널 수!!
 
-    <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211206013504940.png" alt="image-20211206013504940" style="zoom:67%;" />
+    ![image](https://user-images.githubusercontent.com/71866756/144757755-e516f7a7-0f6e-439d-96e9-22d55ae4106a.png)
 
     - 출력은 커널개수만큼 나온다. 
 
@@ -46,7 +44,7 @@
 
     커널을 입력 데이터에 convolution연산할 시 몇 칸씩 뛰어넘을지를 의미
 
-    <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211206013644304.png" alt="image-20211206013644304" style="zoom:67%;" />
+    ![image](https://user-images.githubusercontent.com/71866756/144757767-9ba785e7-1ee1-47ac-a616-d5390fb68b2d.png)
 
   - Padding
 
@@ -58,7 +56,7 @@
 
     
 
-<img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211206013857972.png" alt="image-20211206013857972" style="zoom:67%;" />
+![image](https://user-images.githubusercontent.com/71866756/144757798-477e4037-fb61-4bca-8953-0546454a4abf.png)
 
 # 2. Back Propagation
 
@@ -68,13 +66,13 @@
 
   - MSE( Mean Square Error )
 
-  <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211206020903310.png" alt="image-20211206020903310" style="zoom:67%;" />
+  ![image](https://user-images.githubusercontent.com/71866756/144757811-f1036d9a-8ecf-4a12-8cd0-56c4fe9d7f4c.png)
 
 - **Classification Task**
 
   - CE( Cross-Entropy )
 
-  <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211206021019170.png" alt="image-20211206021019170" style="zoom:67%;" />
+  ![image](https://user-images.githubusercontent.com/71866756/144757823-b31b23b9-be35-4809-bd71-d7ea1e763768.png)
 
 - **Probabilistic Task**
 
@@ -82,7 +80,7 @@
 
   
 
-  <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211206021028082.png" alt="image-20211206021028082" style="zoom:67%;" />
+  ![image](https://user-images.githubusercontent.com/71866756/144757835-eb608cb0-053a-4803-bcaa-2b6579126082.png)
 
   
 
@@ -103,8 +101,7 @@
   trainig error와 test error사이의 차이를 generalization gap이라고 한다. Generalization Performance가 좋다라는 것은 학습한 결과가 test data에서도 잘 동작하는 것을 의미한다. 
 
   
-
-<img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211206021520506.png" alt="image-20211206021520506" style="zoom:67%;" />
+![image](https://user-images.githubusercontent.com/71866756/144757915-aa963733-a769-4b35-9fe5-7a62a174534e.png)
 
 - **Underfitting & Overfitting**
 
@@ -122,13 +119,13 @@
 
 - **Bias & Variance**
 
-  <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211206021932428.png" alt="image-20211206021932428" style="zoom:67%;" />
+  ![image](https://user-images.githubusercontent.com/71866756/144757934-01852996-8f87-4edb-a66b-d0c1680bc3cf.png)
 
   - Bias와 Variance는 Tradeoff 관계이다. 
 
     cost function의 경우 bias, variance, noise를 포함하고 있기 때문에 bias가 낮은 경우 그에 따라 자연스럽게 variance는 높을 수 밖에 없다. 그 반대 역시 마찬가지이다. 
 
-    <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211206022056379.png" alt="image-20211206022056379" style="zoom:67%;" />
+    ![image](https://user-images.githubusercontent.com/71866756/144757964-03569ce3-a75b-4335-8f19-028212382fb1.png)
 
 - Bootstrapping
 
@@ -142,7 +139,7 @@
 
     한 모델을 학습할 때, 결과가 제대로 나오지 않는 데이터셋에 대해서 또 다른 모델을 만들고, 여러개의 모델을 sequence로 연결하여 강한 모델을 만드는 방법
 
-  <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211206022628773.png" alt="image-20211206022628773" style="zoom:67%;" />
+  ![image](https://user-images.githubusercontent.com/71866756/144757995-308a5a0c-0237-4bb0-8599-e0dae2912515.png)
 
   
 
@@ -152,7 +149,7 @@
 
   하나의 샘플 데이터로 gradient를 업데이트하는 것
 
-  <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211206023009668.png" alt="image-20211206023009668" style="zoom:67%;" />
+  ![image](https://user-images.githubusercontent.com/71866756/144758090-898246d5-30a7-4a8a-9397-a0c8059eba0a.png)
 
   - mini-batch gradient descent
 
@@ -168,25 +165,25 @@
 
     batch 사이즈가 작은 경우, 왼쪽 그림처럼 gradient차이가 크지 않기 때문에 training에서의 좋은 결과는 test에서도 좋은 결과로 나올 가능성이 높다. 
 
-  <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211206023424824.png" alt="image-20211206023424824" style="zoom:67%;" />
+  ![image](https://user-images.githubusercontent.com/71866756/144758555-7c761519-85e1-4849-94f1-c6ff398f8e4e.png)
 
 - **Momentum**
 
   베타값이 들어가서 현재 weight를 이전 batch size만큼 학습했을 때의 weight에서 특정값을 곱하여 뺀다. 즉, 과거의 gradient를 어느정도 유지하여 gradient의 변화 폭이 커도 어느정도 학습이 잘 된다는 장점이 있다. 
 
-  ![image-20211206023614443](../../../../AppData/Roaming/Typora/typora-user-images/image-20211206023614443.png)
+  ![image](https://user-images.githubusercontent.com/71866756/144758124-980e7e0f-9408-4316-91bf-c7f6e2b1cb2c.png)
 
 - **Nesterov Accelerated Gradient**
 
   Momentum과 비슷하지만, lookahead로 한번 더 이동하여 그 위치에서 계산한 값을 현재 계산에 넣어주어 좀 더 빠르게 minimum을 찾을 수 있다.
 
-  <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211206023853312.png" alt="image-20211206023853312" style="zoom:67%;" />
+  ![image](https://user-images.githubusercontent.com/71866756/144758145-20c7dfff-1933-4541-80ab-b080f64496d6.png)
 
 - **Adagrad**
 
   값이 많이 변한 parameter들에 대해서는 적게 변화시키고, 값이 적게 변한 parameter들에 대해서는 많이 변화시키는 방법으로 이전 parameter들의 변화를 기록하고 있어야 하며, 이 값은 학습이 진행될 수록 축적이 되어 커지기 때문에 오랜 시간 학습을 진행할 경우 weight의 변화가 줄어들어 학습이 제대로 안될 가능성이 있다. 
 
-  <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211206024131251.png" alt="image-20211206024131251" style="zoom:67%;" />
+  ![image](https://user-images.githubusercontent.com/71866756/144758151-bf70d5ab-fc1f-4a48-a92e-ef83dcf8469b.png)
 
 - **Adadelta**
 
@@ -196,13 +193,13 @@
 
     EMA는 이동평균법으로 평균과의 가장 큰 차이점은 시간이라는 개념이다. 평균은 같은 시간대에서 산출되는 것이 흔한 반면, 이동평균은 동일대상을 서로 다른 시점에서 구한다는 점이 차이점이다. moving average filter를 생각하면 이해가 빠르다. 
 
-  <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211206024426048.png" alt="image-20211206024426048" style="zoom:67%;" />
+  ![image](https://user-images.githubusercontent.com/71866756/144758225-35daeabe-4e5c-4920-b7aa-540e8567b1bc.png)
 
 - **RMSprop**
 
   Adadelta에 step size, 즉 learning rate을 추가한 방법이다. 
 
-  <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211206024545909.png" alt="image-20211206024545909" style="zoom:67%;" />
+  ![image](https://user-images.githubusercontent.com/71866756/144758204-610fe652-0d4b-41b7-aa22-1877989adb27.png)
 
 - **Adam**
 
@@ -210,6 +207,6 @@
 
   입실론은 0으로 나눠지는 것을 막기 위한 요소로 Adam의 가장 중요한 요소이다. 
 
-  ![image-20211206024747834](../../../../AppData/Roaming/Typora/typora-user-images/image-20211206024747834.png)
+  ![image](https://user-images.githubusercontent.com/71866756/144758181-b5cfac99-18e4-4da7-83bb-1fc6916fcc86.png)
 
   
