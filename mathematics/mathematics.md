@@ -14,7 +14,7 @@
 
   ( 접선의 기울기를 나타낸다. )
 
-<img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211205234957106.png" alt="image-20211205234957106" style="zoom: 67%;" />
+![image](https://user-images.githubusercontent.com/71866756/144754284-27e41f3b-336e-459c-97d4-23aabbcdc07e.png)
 
 - **미분 코드**
 
