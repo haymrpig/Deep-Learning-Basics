@@ -3,6 +3,7 @@
 1. **Convolution 연산**
 2. **Back Propagation**
 3. **Cost Function**
+3. 
 4. **Optimization 용어 정리**
 5. **Optimizer의 종류**
    - Gradient Descent
@@ -101,6 +102,7 @@
   trainig error와 test error사이의 차이를 generalization gap이라고 한다. Generalization Performance가 좋다라는 것은 학습한 결과가 test data에서도 잘 동작하는 것을 의미한다. 
 
   
+
 ![image](https://user-images.githubusercontent.com/71866756/144757915-aa963733-a769-4b35-9fe5-7a62a174534e.png)
 
 - **Underfitting & Overfitting**
