@@ -38,7 +38,8 @@ num_labels = len(unique)
 print("Train labels: {}, labels : {}".format(dict(zip(unique, counts)), num_labels))
 ```
 
-![image-20211207033837759](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211207033837759.png)
+![image](https://user-images.githubusercontent.com/71866756/144905583-81e22d9e-9119-4d04-b779-3d98fe9a12dc.png)
+
 
 ```python
 # decorator를 통해 train data를 모두 살펴볼 수 있다. 
@@ -51,7 +52,9 @@ def showImage(idx):
     plt.show()
 ```
 
-<img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211207033946743.png" alt="image-20211207033946743" style="zoom:67%;" />
+
+![image](https://user-images.githubusercontent.com/71866756/144905599-33f45512-769d-4ffa-bb49-a3b50615883a.png)
+
 
 ```python
 @interact(idx=(0, train_datas.shape[0]-1))
@@ -59,7 +62,8 @@ def showImage(idx):
     print(train_datas[idx])
 ```
 
-<img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211207034013861.png" alt="image-20211207034013861" style="zoom:67%;" />
+![image](https://user-images.githubusercontent.com/71866756/144905611-5e1255af-0dac-4824-880b-510772e6b680.png)
+
 
 - data 크기 변경하기
 
@@ -81,11 +85,14 @@ model = models.Model(inputs=inputs, outputs=outputs, name="mnist_model")
 model.summary()
 ```
 
-<img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211207034311325.png" alt="image-20211207034311325" style="zoom:67%;" />
+![image](https://user-images.githubusercontent.com/71866756/144905625-0867db04-655b-48ce-bba0-50e475b0886d.png)
 
 ```python
 utils.plot_model(model, "model.png", True)
 ```
+
+![image](https://user-images.githubusercontent.com/71866756/144905635-12e1c3fb-1847-4a30-8fd6-c0474e68260c.png)
+
 
 ```python
 # 사실 위에서 마지막 Dense에서 activation함수를 적용하여 어떤 레이블이 1이 나오는지 정해주어야 한다.
@@ -108,7 +115,8 @@ model.compile(
 history = model.fit(train_datas, train_labels, batch_size=64, epochs=5, validation_split=0.2)
 ```
 
-![image-20211207034415320](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211207034415320.png)
+
+![image](https://user-images.githubusercontent.com/71866756/144905645-470bc6d7-7040-440a-bed8-724ecf46dc6b.png)
 
 - 평가 단계
 
@@ -122,7 +130,9 @@ print("Test loss:", test_scores[0])
 print("Test accuracy:", test_scores[1])
 ```
 
-![image-20211207034443992](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211207034443992.png)
+
+
+![image](https://user-images.githubusercontent.com/71866756/144905660-5b0963f0-6aea-4f3b-8f97-f5b11990c833.png)
 
 - train한 결과 확인하기
 
@@ -131,19 +141,24 @@ history_df = pd.DataFrame(history.history)
 history_df[["loss", "val_loss"]].plot()
 ```
 
-<img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211207034527348.png" alt="image-20211207034527348" style="zoom:67%;" />
+
+![image](https://user-images.githubusercontent.com/71866756/144905678-efa17933-cee6-4b35-a0aa-bcf9f58b3961.png)
+
+
 
 ```python
 history_df
 ```
 
-![image-20211207034544774](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211207034544774.png)
+![image](https://user-images.githubusercontent.com/71866756/144905699-c6d42e63-d307-4995-bf75-36e5ac3b14e2.png)
+
+
 
 ```python
 history_df[["accuracy", "val_accuracy"]].plot()
 ```
 
-<img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211207034608599.png" alt="image-20211207034608599" style="zoom:67%;" />
+![image](https://user-images.githubusercontent.com/71866756/144905725-289a1a04-79d2-4bf1-b8b3-69e0d87e0495.png)
 
 - 모델 저장하기
 
