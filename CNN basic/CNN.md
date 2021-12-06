@@ -10,13 +10,17 @@
 4. **Optimization 용어 정리**
 5. **Optimizer의 종류**
    - Gradient Descent
-     - Stochastic gradient descent
-     - Momentum
-     - Nesterov accelerated gradient
-     - Adagrad
-     - Adadelta
-     - RMSprop
-     - Adam
+     - mini batch gradient descent
+     - batch gradient descent
+   - Momentum
+   - Nesterov accelerated gradient
+   - Adagrad
+   - Adadelta
+   - RMSprop
+   - Adam
+6. **Activation function**
+   - Sigmoid
+   - Softmax
 
 # 1. Convolution 연산
 
@@ -69,7 +73,7 @@
     
   - Dilated convolution
   
-    해당 값이 1일 경우 일반적인 convolution과 같지만,  2 이상일 경우 kernel 사이 간격을 조정하여 convolution 연산을 실행한다. 
+    해당 값이 1일 경우 일반적인 convolution과 같지만,  2 이상일 경우 kernel 사이 간격을 조정하여 convolution 연산을 실행한다. 예를 들어 저해상도에서 고해상도로 만들 때 사용하기도 한다. 
     
     ![image](https://user-images.githubusercontent.com/71866756/144823914-e36ae6e1-80f8-402c-8196-d6c43a0c97dd.png)
     
@@ -92,6 +96,10 @@
 - **Classification Task**
 
   - CE( Cross-Entropy )
+
+    loss를 최대한 정답 레이블에 맞춰서 계산하기 위한 방법이다. one-hot coding에서 정답 레이블이 아닌 다른 레이블의 값은 0이므로 아래 식에서 0이 곱해져서 나머지 정답이 아닌 레이블에 대한 error는 계산되지 않게 된다. 
+
+    또한 log이기 때문에 차이가 클수록 error가 더욱 커지고, 차이가 작을수록 error는 더욱 작아진다. 
 
   ![image](https://user-images.githubusercontent.com/71866756/144757823-b31b23b9-be35-4809-bd71-d7ea1e763768.png)
 
@@ -230,5 +238,23 @@
   입실론은 0으로 나눠지는 것을 막기 위한 요소로 Adam의 가장 중요한 요소이다. 
 
   ![image](https://user-images.githubusercontent.com/71866756/144758181-b5cfac99-18e4-4da7-83bb-1fc6916fcc86.png)
+
+  
+
+# 6. Activation function
+
+- **Sigmoid**
+
+  sigmoid의 경우 결과를 0~1사이의 값으로 변경해준다. 나온 결과들의 합이 1이 되지 않아도 되기 때문에 multi-label classification task에서 종종 사용한다. 
+
+  - sigmoid + cross-entropy를 BinaryCrossEntropy라고 부른다. 
+
+- **Softmax**
+
+  softmax의 경우 나온 결과를 0~1로 변환하고, 나온 결과들의 합이 1이 되도록 하기 때문에 전체 합을 해당결과에서 나누어 확률을 구한다. multi-class classification task에서 종종 사용한다. ( 정답 label이 하나이기 때문에 전체 합이 1이 될 수 있다. )
+
+  - softmax + cross-entropy를 CategoricalCrossEntropy 라고 부른다. 
+
+  
 
   
