@@ -42,17 +42,17 @@
 
   - 경사하강법 (극소값) : 현재 값 - 미분값
 
-  $$
+  
   -(df/dx, df/dy)
-  $$
+  
 
   ![image](https://user-images.githubusercontent.com/71866756/144754317-07b5d5aa-0216-4bf9-810e-b71dff8a48e6.png)
 
   - 경사상승법 (극대값) : 현재 값 + 미분값
 
-  $$
+  
   (df/dx, df/dy)
-  $$
+  
 
   ![image](https://user-images.githubusercontent.com/71866756/144754463-15639a92-587c-4021-95d1-49e33341bf5a.png)
 
