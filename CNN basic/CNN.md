@@ -54,7 +54,8 @@
 
     출력 크기 계산 수식을 이용하면 출력의 크기는 입력보다 작아지게 된다. 따라서 이 경우는 Padding이 없는 경우이며, 만약 padding이 있는 경우에는 입력의 최외곽 일정 크기만큼을 일정한 수로 채우는 것을 의미한다. 
 
-    <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211206013834179.png" alt="image-20211206013834179" style="zoom:67%;" />
+    ![image](https://user-images.githubusercontent.com/71866756/144823796-76bd6338-2be4-46ad-9d8d-74a0dac640bd.png)
+
 
   - Example
 
@@ -64,13 +65,13 @@
   
     input의 크기가 클 경우 max pooling을 이용하여 parameter들을 효과적으로 줄여줄 수 있다. 
     
-    <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211206184048645.png" alt="image-20211206184048645" style="zoom:67%;" />
+    ![image](https://user-images.githubusercontent.com/71866756/144823862-02085478-618f-47a0-bc57-3316e8c77754.png)
     
   - Dilated convolution
   
     해당 값이 1일 경우 일반적인 convolution과 같지만,  2 이상일 경우 kernel 사이 간격을 조정하여 convolution 연산을 실행한다. 
     
-    <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211206184217766.png" alt="image-20211206184217766" style="zoom:67%;" />
+    ![image](https://user-images.githubusercontent.com/71866756/144823914-e36ae6e1-80f8-402c-8196-d6c43a0c97dd.png)
     
     
     
