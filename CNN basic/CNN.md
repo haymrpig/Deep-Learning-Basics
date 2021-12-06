@@ -1,9 +1,12 @@
 # 목차
 
 1. **Convolution 연산**
+   - Stride
+   - Padding
+   - Max Pooling
+   - Dilated convolution
 2. **Back Propagation**
 3. **Cost Function**
-3. 
 4. **Optimization 용어 정리**
 5. **Optimizer의 종류**
    - Gradient Descent
@@ -55,9 +58,25 @@
 
   - Example
 
+    ![image](https://user-images.githubusercontent.com/71866756/144757798-477e4037-fb61-4bca-8953-0546454a4abf.png)
+    
+  - Max Pooling
+  
+    input의 크기가 클 경우 max pooling을 이용하여 parameter들을 효과적으로 줄여줄 수 있다. 
+    
+    <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211206184048645.png" alt="image-20211206184048645" style="zoom:67%;" />
+    
+  - Dilated convolution
+  
+    해당 값이 1일 경우 일반적인 convolution과 같지만,  2 이상일 경우 kernel 사이 간격을 조정하여 convolution 연산을 실행한다. 
+    
+    <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211206184217766.png" alt="image-20211206184217766" style="zoom:67%;" />
+    
+    
+    
     
 
-![image](https://user-images.githubusercontent.com/71866756/144757798-477e4037-fb61-4bca-8953-0546454a4abf.png)
+
 
 # 2. Back Propagation
 
