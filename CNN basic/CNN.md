@@ -264,7 +264,7 @@ chain rule을 이용하여 backward로 각각의 parameter들이 cost에 미치�
 
   - sigmoid + cross-entropy를 BinaryCrossEntropy라고 부른다. 
 
-    ![image-20211208023432818](../../../../AppData/Roaming/Typora/typora-user-images/image-20211208023432818.png)
+    ![image](https://user-images.githubusercontent.com/71866756/145266182-42b5f15d-a362-4bf4-8ee7-01233ef2e50b.png)
 
 - **Softmax**
 
@@ -276,15 +276,15 @@ chain rule을 이용하여 backward로 각각의 parameter들이 cost에 미치�
 
   backpropagation을 통해 계산을 하면 훨씬 이전 layer에서의 gradient가 너무 작아지는 문제가 발생하여 학습이 제대로 진행되지 않는다. ( softmax를 적용하였을 경우, 각각의 parameter들이 0~1로 바뀌기 때문에 )
 
-  <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211208023244617.png" alt="image-20211208023244617" style="zoom:67%;" />
+  ![image](https://user-images.githubusercontent.com/71866756/145266139-6f260a58-8a59-4121-8bce-129aa7088a54.png)
 
   위 문제를 해결하기 위해서 ReLU가 사용되었다. ReLU의 경우 값이 x에 따라 결정되기 때문에 vanishing gradient문제가 발생하지 않는다. 
 
-  ![image-20211208023516315](../../../../AppData/Roaming/Typora/typora-user-images/image-20211208023516315.png)
+  ![image](https://user-images.githubusercontent.com/71866756/145266266-bf364bd1-57c9-4e29-89ad-20d5c2e986fb.png)
 
 - **Leaky ReLU**
 
-  ![image-20211208023753431](../../../../AppData/Roaming/Typora/typora-user-images/image-20211208023753431.png)
+  ![image](https://user-images.githubusercontent.com/71866756/145266308-101cdf76-d080-419c-9e75-70770565001d.png)
 
 - **Maxout**
 
