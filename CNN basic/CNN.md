@@ -280,18 +280,34 @@ chain rule을 이용하여 backward로 각각의 parameter들이 cost에 미치�
 
   위 문제를 해결하기 위해서 ReLU가 사용되었다. ReLU의 경우 값이 x에 따라 결정되기 때문에 vanishing gradient문제가 발생하지 않는다. 
 
+  단점으로는 0이 많아지기 때문에 일부 뉴런이 죽을 수가 있다. ( Dying ReLU ) 
+
   ![image](https://user-images.githubusercontent.com/71866756/145266266-bf364bd1-57c9-4e29-89ad-20d5c2e986fb.png)
 
 - **Leaky ReLU**
+
+  ReLU의 Dying ReLU현상을 막기위해 만들어졌다. 
 
   ![image](https://user-images.githubusercontent.com/71866756/145266308-101cdf76-d080-419c-9e75-70770565001d.png)
 
 - **Maxout**
 
+  ReLU의 장점을 모두 다 가지며, Dying ReLU문제 또한 해결할 수 있지만, 계산이 복잡하고 양이 많다는 단점이 있다. 
+
+  ![image-20211209035739542](../../../../AppData/Roaming/Typora/typora-user-images/image-20211209035739542.png)
+
 - **tanh**
 
-  
+  sigmoid와 유사한 형태이지만 그래프의 위치와 기울기가 다르다. 입력신호를 -1~1로 normalization한다. 하지만 이 역시 미분값이 0이 나오는 구간이 존재하므로 vanishing gradient를 해결할 순 없다. 
 
+  ![image-20211209035536813](../../../../AppData/Roaming/Typora/typora-user-images/image-20211209035536813.png)
+  
+  ![image-20211209035713068](../../../../AppData/Roaming/Typora/typora-user-images/image-20211209035713068.png)
+  
+  
+  
+  
+  
   
 
 # 7. Regularization
