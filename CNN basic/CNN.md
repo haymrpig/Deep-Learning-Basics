@@ -294,15 +294,13 @@ chain rule을 이용하여 backward로 각각의 parameter들이 cost에 미치�
 
   ReLU의 장점을 모두 다 가지며, Dying ReLU문제 또한 해결할 수 있지만, 계산이 복잡하고 양이 많다는 단점이 있다. 
 
-  ![image-20211209035739542](../../../../AppData/Roaming/Typora/typora-user-images/image-20211209035739542.png)
+  ![image](https://user-images.githubusercontent.com/71866756/145267695-69e3bb94-87b8-41ed-8203-d8e923c2a79f.png)
 
 - **tanh**
 
   sigmoid와 유사한 형태이지만 그래프의 위치와 기울기가 다르다. 입력신호를 -1~1로 normalization한다. 하지만 이 역시 미분값이 0이 나오는 구간이 존재하므로 vanishing gradient를 해결할 순 없다. 
 
-  ![image-20211209035536813](../../../../AppData/Roaming/Typora/typora-user-images/image-20211209035536813.png)
-  
-  ![image-20211209035713068](../../../../AppData/Roaming/Typora/typora-user-images/image-20211209035713068.png)
+  ![image](https://user-images.githubusercontent.com/71866756/145267757-12b13bac-f125-405a-ae88-98accd6dd605.png)
   
   
   
