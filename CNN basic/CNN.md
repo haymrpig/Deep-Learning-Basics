@@ -21,6 +21,11 @@
 6. **Activation function**
    - Sigmoid
    - Softmax
+   - ReLU
+   - Leaky ReLU
+   - Maxout
+   - tanh
+7. **Regularization**
 
 # 1. Convolution 연산
 
@@ -84,6 +89,16 @@
 
 
 # 2. Back Propagation
+
+chain rule을 이용하여 backward로 각각의 parameter들이 cost에 미치는 영향을 계산하는 방식
+
+- **Chain rule**
+
+  `df/dx = dg/dx * df/dg`
+
+  
+
+  
 
 # 3. Cost Function
 
@@ -157,7 +172,7 @@
 
     ![image](https://user-images.githubusercontent.com/71866756/144757964-03569ce3-a75b-4335-8f19-028212382fb1.png)
 
-- Bootstrapping
+- **Bootstrapping**
 
   학습 데이터가 주어졌을 때, 그 학습데이터를 여러개의 sub data로 나누어 여러 모델을 만드는 것을 의미한다. 
 
@@ -245,9 +260,11 @@
 
 - **Sigmoid**
 
-  sigmoid의 경우 결과를 0~1사이의 값으로 변경해준다. 나온 결과들의 합이 1이 되지 않아도 되기 때문에 multi-label classification task에서 종종 사용한다. 
+  sigmoid의 경우 결과를 0~1사이의 값으로 변경해준다. 나온 결과들의 합이 1이 되지 않아도 되기 때문에 multi-label classification task에서 종종  사용한다. 
 
   - sigmoid + cross-entropy를 BinaryCrossEntropy라고 부른다. 
+
+    ![image-20211208023432818](../../../../AppData/Roaming/Typora/typora-user-images/image-20211208023432818.png)
 
 - **Softmax**
 
@@ -255,6 +272,41 @@
 
   - softmax + cross-entropy를 CategoricalCrossEntropy 라고 부른다. 
 
+- **ReLU**
+
+  backpropagation을 통해 계산을 하면 훨씬 이전 layer에서의 gradient가 너무 작아지는 문제가 발생하여 학습이 제대로 진행되지 않는다. ( softmax를 적용하였을 경우, 각각의 parameter들이 0~1로 바뀌기 때문에 )
+
+  <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211208023244617.png" alt="image-20211208023244617" style="zoom:67%;" />
+
+  위 문제를 해결하기 위해서 ReLU가 사용되었다. ReLU의 경우 값이 x에 따라 결정되기 때문에 vanishing gradient문제가 발생하지 않는다. 
+
+  ![image-20211208023516315](../../../../AppData/Roaming/Typora/typora-user-images/image-20211208023516315.png)
+
+- **Leaky ReLU**
+
+  ![image-20211208023753431](../../../../AppData/Roaming/Typora/typora-user-images/image-20211208023753431.png)
+
+- **Maxout**
+
+- **tanh**
+
   
 
   
+
+# 7. Regularization
+
+overfitting을 방지하기 위한 여러가지 기법들을 의미한다. 
+
+- **dropout**
+
+  layer에서 몇몇 parameter들이 다음 layer로 가는 것을 막는다는 아이디어이다.
+
+- **Ensemble**
+
+  bagging이 앙상블에 해당한다. 여러 모델을 만들고 최종 결과에 모아 성능을 향상시키는 기법이다. 
+
+  
+
+
+
