@@ -64,19 +64,18 @@
 
 벡터의 일정값을 곱해주어 결합하는 것을 선형결합이라고 한다. 
 
-![image-20211208155528065](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211208155529473.png)
+![image](https://user-images.githubusercontent.com/71866756/145265004-c357fde6-0411-4d0e-82f9-f0326bd3dbef.png)
 
 - **Span**
 
   가능한 모든 선형 결합의 집합을 의미한다. 아래 그림처럼 coefficient를 변경하여 만들어진 모든 집합을 Span이라고 한다.
 
-  ![image-20211208155705118](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211208155705118.png)
+  ![image](https://user-images.githubusercontent.com/71866756/145265083-2a7036bd-baa1-46ec-8f6f-c4fa90f2f5bc.png)
 
 - **Sum of (Rank-1) outer product**
 
-  <img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211208161228727.png" alt="image-20211208161228727" style="zoom:67%;" />
+  ![image](https://user-images.githubusercontent.com/71866756/145265135-f33952ed-43d2-4407-9b33-db19a6d9b106.png)
 
-  <img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211208161253097.png" alt="image-20211208161253097" style="zoom:67%;" />
 
   복잡한 행렬곱도 행렬의 분해를 통해 간단하게 계산을 할 수 있다. 
 
@@ -130,7 +129,7 @@
 
 선형변환이란 함수에 넣기 전에 두 input의 결합을 넣어 얻은 결과와 각각의 input을 따로 넣어 결과를 결합한 것이 일치할 때 선형변환이라고 한다. 
 
-<img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211208170232020.png" alt="image-20211208170232020" style="zoom:67%;" />
+![image](https://user-images.githubusercontent.com/71866756/145265239-967807df-ea6d-4185-9a18-5a1db19028aa.png)
 
 - **용어 정리**
 
@@ -154,11 +153,11 @@
 
     정의역에 매핑되는 정답
 
-    <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211208170028064.png" alt="image-20211208170028064" style="zoom:67%;" />
+    ![image](https://user-images.githubusercontent.com/71866756/145265299-1e719be0-e6ad-4c2c-8105-ff95fc1b9b05.png)
 
 - 선형변환을 만족할 경우
 
-  <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211208171014477.png" alt="image-20211208171014477" style="zoom:67%;" />
+  ![image](https://user-images.githubusercontent.com/71866756/145265351-47029257-6b67-4907-8c86-70b52cd3a4ce.png)
 
   항상 행렬과 입력벡터의 곱으로 나타낼 수 있다. 
 
@@ -180,7 +179,7 @@
 
 # 6. Least Squares
 
-![image-20211208181159998](../../../../AppData/Roaming/Typora/typora-user-images/image-20211208181159998.png)
+![image](https://user-images.githubusercontent.com/71866756/145265433-41a5eaf5-8866-4293-9bd1-58e777bdb157.png)
 
 - **용어 정리**
 
@@ -198,7 +197,7 @@
 
     - 두 벡터 사이 끼인각
 
-      <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211208180135492.png" alt="image-20211208180135492" style="zoom:67%;" />
+      ![image](https://user-images.githubusercontent.com/71866756/145265460-b038e3b0-4372-46da-ba6a-beb5f3fee37c.png)
 
     - 직교하는 두 벡터
 
@@ -206,7 +205,7 @@
 
 - **정규방정식( Normal Equation )**
 
-  <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211208183442039.png" alt="image-20211208183442039" style="zoom:67%;" />
+  ![image](https://user-images.githubusercontent.com/71866756/145265508-0b7d44d4-5a70-4e44-b196-56f8fad53eeb.png)
 
   - 역행렬이 존재할 경우
 
@@ -216,7 +215,7 @@
 
     유사역행렬을 통해 구한다. 
 
-    <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211208183521706.png" alt="image-20211208183521706" style="zoom:67%;" />
+    ![image](https://user-images.githubusercontent.com/71866756/145265542-664bb369-2a15-44be-8ab2-f8b092c97bbf.png)
 
 
 
@@ -224,9 +223,7 @@
 
 b를 projection시켜 b 햇을 구할 수 있다. 이 때 식은 위에서 구했던 식과 일치한다. 
 
-<img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211208184413174.png" alt="image-20211208184413174" style="zoom:67%;" />
-
-<img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211208184520189.png" alt="image-20211208184520189" style="zoom:67%;" />
+![image](https://user-images.githubusercontent.com/71866756/145265578-90aae95e-b236-400c-b0e1-2abd7cd81a8b.png)
 
 - Orthogonal basis
 
@@ -238,7 +235,7 @@ b를 projection시켜 b 햇을 구할 수 있다. 이 때 식은 위에서 구�
 
     기존 기저벡터와 orthogonal한 기저벡터를 구하는 방법이다. 
 
-    <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211208185237124.png" alt="image-20211208185237124" style="zoom:67%;" />
+    ![image](https://user-images.githubusercontent.com/71866756/145265648-74afb586-c107-4d46-9f5d-58811f15281f.png)
 
     y의 orthogonal basis를 구하면 y-y_hat이 된다. 
 
@@ -246,23 +243,21 @@ b를 projection시켜 b 햇을 구할 수 있다. 이 때 식은 위에서 구�
 
     그 결과 아래와 같은 식을 유도할 수 있다.  
 
-    ![image-20211208185425519](../../../../AppData/Roaming/Typora/typora-user-images/image-20211208185425519.png)
+    ![image](https://user-images.githubusercontent.com/71866756/145265674-cf58a5c4-54f8-447b-8a70-6bedf563bab8.png)
 
     만약 u가 길이가 1인 단위벡터라면 아래와 같은 식이 된다. 
 
-    ![image-20211208185532829](../../../../AppData/Roaming/Typora/typora-user-images/image-20211208185532829.png)
+    ![image](https://user-images.githubusercontent.com/71866756/145265707-8060b3f5-ea2a-4119-88d3-bfbe22492ba4.png)
 
   - 다차원
 
     2차원에서 확장된 것이라 보면 된다. 각각의 u에 대해 같은 방식으로 진행한뒤 더하면 다차원에서의 orthogonal basis가 된다. 
 
-    ![image-20211208185732612](../../../../AppData/Roaming/Typora/typora-user-images/image-20211208185732612.png)
-
-    ![image-20211208185749324](../../../../AppData/Roaming/Typora/typora-user-images/image-20211208185749324.png)
+    ![image](https://user-images.githubusercontent.com/71866756/145265747-d595e1d4-70ef-416d-8b09-2be192463990.png)
 
   - 위 식을 선형변환으로 표현할 수 있다. 
 
-    <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211208190227778.png" alt="image-20211208190227778" style="zoom:67%;" />
+    ![image](https://user-images.githubusercontent.com/71866756/145265779-bb04d262-fc26-4028-a042-e80523a0ae56.png)
 
     위에서 구한 식에 의해서 만약 u1과 u2를 단위벡터라고 가정하면 결국 마지막에 b_hat은 UU^Tb가 된다!!
 
@@ -272,11 +267,11 @@ b를 projection시켜 b 햇을 구할 수 있다. 이 때 식은 위에서 구�
 
     만약 두개의 feature가 있다고 할 때, 두 벡터가 비슷한 경향을 보인다고 하자. 그럴 경우, 한 벡터는 다른 벡터의 방향으로 projection된다고 할 수 있고, 이 두 벡터는 직교에서 멀어질 것이다. 그러면 이러한 조그만 비슷한 경향성에 의해 weight값이 크게 변할 수 있고, 이러한 데이터의 오류 때문에 결과가 안 좋아질 수 있다. ( 아래 그림 )
 
-    <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211208192133303.png" alt="image-20211208192133303" style="zoom:67%;" />
+    ![image](https://user-images.githubusercontent.com/71866756/145265807-500104d9-153f-4bf9-aed6-5dc4168d5ca5.png)
 
     이 때 regularization기법을 사용한다. 
 
-    <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211208192207551.png" alt="image-20211208192207551" style="zoom:67%;" />
+    ![image](https://user-images.githubusercontent.com/71866756/145265838-5346f35e-4472-404e-98d0-8dbbc1ed7a94.png)
 
     
 
