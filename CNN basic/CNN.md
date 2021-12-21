@@ -209,6 +209,8 @@ chain rule을 이용하여 backward로 각각의 parameter들이 cost에 미치�
     batch 사이즈가 매우 큰 경우, 오른쪽 그림처럼 sharp minimum이 된다. 즉, 같은 위치에서 training한 결과는 minimum이지만, test한 결과가 매우 높은 값을 나타낼 수 있다. 
 
     batch 사이즈가 작은 경우, 왼쪽 그림처럼 gradient차이가 크지 않기 때문에 training에서의 좋은 결과는 test에서도 좋은 결과로 나올 가능성이 높다. 
+    
+    -> training과 test의 분포의 차이 ( Internal Covariate Shift )
 
   ![image](https://user-images.githubusercontent.com/71866756/144758555-7c761519-85e1-4849-94f1-c6ff398f8e4e.png)
 
@@ -316,11 +318,90 @@ overfitting을 방지하기 위한 여러가지 기법들을 의미한다.
 
   layer에서 몇몇 parameter들이 다음 layer로 가는 것을 막는다는 아이디어이다.
 
+  train에서는 dropout을 사용하지만, eval에서는 사용하면 안된다. 
+
 - **Ensemble**
 
   bagging이 앙상블에 해당한다. 여러 모델을 만들고 최종 결과에 모아 성능을 향상시키는 기법이다. 
 
-  
+- **Weight Initialization**
+
+  weight를 0으로 초기화할 경우, backpropagation 진행 시 gradient가 0으로 학습이 되지 않는다.
+
+  - **RBM( Restricted Boltzmann Machine )**
+
+    - Restricted : 같은 layer에서의 연결은 없다는 의미 ( 다른 layer와는 fully connected )
+
+      <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211221225520657.png" alt="image-20211221225520657" style="zoom:67%;" />
+
+    - RBM 동작 방식
+
+      1. 첫 layer input x가 들어왔을 때 학습을 통해 출력 y가 결정되고, 출력 y로 다시 x를 복원할 수 있도록 학습을 시켜 weight를 setting한다. ( pre-training 단계에서 RBM을 몇번을 학습해야 하는지는 연구가 되었지만, 정확하게 나온 결과는 없다. )
+      2. setting된 weight는 fix한다.
+      3. 다음 layer도 똑같은 방식으로 진행한다.
+      4. RBM을 통해 tuning된 weight로 back propagation을 통해 기존 방식처럼 학습을 진행하는 것을 Fine-tuning이라고 한다. 
+
+      <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211221225800604.png" alt="image-20211221225800604" style="zoom:67%;" />
+
+      -> 요즘에는 잘 사용하지 않는 방식이다. ( 계산 방식이 복잡하기 때문에 )
+
+  - **Xavier**
+
+    layer의 특성에 따라 weight를 초기화하는 방식
+
+    - Xavier Normal Initialization
+
+      평균과 표준편차를 아래 그림처럼 사용하는 방식( nin : layer input 수, nout : layer output 수 )
+
+      <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211221230308264.png" alt="image-20211221230308264" style="zoom: 50%;" />
+
+    - Xavier Uniform Initialization
+
+      <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211221230338991.png" alt="image-20211221230338991" style="zoom:67%;" />
+
+  - **He Initialization**
+
+    마찬가지로 layer의 특성에 따라 weight를 초기화하는 방식
+
+    - He Normal Initialization
+
+      <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211221230539315.png" alt="image-20211221230539315" style="zoom:50%;" />
+
+    - He Uniform Initialization
+
+      <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211221230609175.png" alt="image-20211221230609175" style="zoom:67%;" />
+
+- **Batch Normalization**
+
+  activation function 변경, careful initialization, small learning rate 등은 gardient vanishing / exploding을 해결할 수 있는 간접적인 방식이다. 
+
+  batch normalization 또한 이 문제를 해결하기 위한 방식으로 좀 더 직접적인 방식이라고 할 수 있다. 
+
+  각 layer마다 normalization을 진행하는데, 학습 시 사용하는 mini batch마다 normalization을 하기 때문에 batch normalization이란 불린다. 
+
+  <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211221234152768.png" alt="image-20211221234152768" style="zoom:67%;" />
+  $$
+  \epsilon : 분모를 0이 되지 않게 하기 위한 아주 작은 값\\
+  \beta, \gamma : batch normalization을 계속 진행할 경우,\\ activation function의 nonlinearty를 잃게 될 수 있기 때문에 추가해주는 값( 학습 parameter)
+  $$
+  !!! 주의 사항 !!!
+
+  - training 과정에서 구한 mini-batch mean( sample mean )과 mini-batch variance( sample variance )는 데이터에 따라 달라지기 때문에, test시 그대로 이용하는 경우 알맞은 값이 아닐 가능성이 높아지게 된다. 
+  - 따라서 학습시의 모든 sample mean & sample variance를 따로 저장하여 test시에는 이 값들의 평균으로 구한 learning mean & learning variance를 사용한다. ( 고정된 값을 사용한다. )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
