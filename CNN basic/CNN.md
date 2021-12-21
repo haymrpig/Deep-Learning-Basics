@@ -1,14 +1,14 @@
 # 목차
 
-[1. **Convolution 연산**](#1-convolution-연산)
+1. [**Convolution 연산**](#1-convolution-연산)
    - Stride
    - Padding
    - Max Pooling
    - Dilated convolution
-2. **Back Propagation**
-3. **Cost Function**
-4. **Optimization 용어 정리**
-5. **Optimizer의 종류**
+2. [**Back Propagation**](#2-back-propagation)
+3. [**Cost Function**](#3-cost-function)
+4. [**Optimization 용어 정리**](#4-optimization)
+5. [**Optimizer의 종류**](#5-optimizer의-종류)
    - Gradient Descent
      - mini batch gradient descent
      - batch gradient descent
@@ -18,14 +18,14 @@
    - Adadelta
    - RMSprop
    - Adam
-6. **Activation function**
+6. [**Activation function**](#6-activation-function)
    - Sigmoid
    - Softmax
    - ReLU
    - Leaky ReLU
    - Maxout
    - tanh
-7. **Regularization**
+7. [**Regularization**](#7-regularization)
 
 # 1. Convolution 연산
 
