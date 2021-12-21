@@ -23,11 +23,8 @@
 
 - pytorch에서의 tensor 표현
 
-  <img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211220150029266.png" alt="image-20211220150029266" style="zoom:67%;" />
+  ![image](https://user-images.githubusercontent.com/71866756/146793425-faab3035-ab14-41fa-902e-3e348ff5fa91.png)
 
-  <img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211220150057692.png" alt="image-20211220150057692" style="zoom:67%;" />
-
-  <img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211220150136632.png" alt="image-20211220150136632" style="zoom:67%;" />
 
   
 
