@@ -332,7 +332,8 @@ overfitting을 방지하기 위한 여러가지 기법들을 의미한다.
 
     - Restricted : 같은 layer에서의 연결은 없다는 의미 ( 다른 layer와는 fully connected )
 
-      <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211221225520657.png" alt="image-20211221225520657" style="zoom:67%;" />
+      ![image](https://user-images.githubusercontent.com/71866756/146974137-41c3f95e-71c5-4152-9cbe-0ff83e454dee.png)
+
 
     - RBM 동작 방식
 
@@ -341,7 +342,7 @@ overfitting을 방지하기 위한 여러가지 기법들을 의미한다.
       3. 다음 layer도 똑같은 방식으로 진행한다.
       4. RBM을 통해 tuning된 weight로 back propagation을 통해 기존 방식처럼 학습을 진행하는 것을 Fine-tuning이라고 한다. 
 
-      <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211221225800604.png" alt="image-20211221225800604" style="zoom:67%;" />
+      ![image](https://user-images.githubusercontent.com/71866756/146974246-fbec33c8-fe90-4964-b987-ca08c0342d97.png)
 
       -> 요즘에는 잘 사용하지 않는 방식이다. ( 계산 방식이 복잡하기 때문에 )
 
@@ -353,11 +354,11 @@ overfitting을 방지하기 위한 여러가지 기법들을 의미한다.
 
       평균과 표준편차를 아래 그림처럼 사용하는 방식( nin : layer input 수, nout : layer output 수 )
 
-      <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211221230308264.png" alt="image-20211221230308264" style="zoom: 50%;" />
+      ![image](https://user-images.githubusercontent.com/71866756/146974290-868b7cf8-b94f-43e0-8c09-2fe00d14917f.png)
 
     - Xavier Uniform Initialization
 
-      <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211221230338991.png" alt="image-20211221230338991" style="zoom:67%;" />
+      ![image](https://user-images.githubusercontent.com/71866756/146974381-ed4d6a58-cf85-4b9e-a3b0-9ad473e9ff29.png)
 
   - **He Initialization**
 
@@ -365,11 +366,11 @@ overfitting을 방지하기 위한 여러가지 기법들을 의미한다.
 
     - He Normal Initialization
 
-      <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211221230539315.png" alt="image-20211221230539315" style="zoom:50%;" />
+      ![image](https://user-images.githubusercontent.com/71866756/146974429-7a17a0f1-966f-4dc8-8a03-c7937dee6a6a.png)
 
     - He Uniform Initialization
 
-      <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211221230609175.png" alt="image-20211221230609175" style="zoom:67%;" />
+      ![image](https://user-images.githubusercontent.com/71866756/146974476-7f6157ea-a66f-4578-9c5c-3d1babea475e.png)
 
 - **Batch Normalization**
 
@@ -379,7 +380,7 @@ overfitting을 방지하기 위한 여러가지 기법들을 의미한다.
 
   각 layer마다 normalization을 진행하는데, 학습 시 사용하는 mini batch마다 normalization을 하기 때문에 batch normalization이란 불린다. 
 
-  <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211221234152768.png" alt="image-20211221234152768" style="zoom:67%;" />
+  ![image](https://user-images.githubusercontent.com/71866756/146974512-8a85f5d6-5f44-4a0b-95c9-95f539ee5f3e.png)
   $$
   \epsilon : 분모를 0이 되지 않게 하기 위한 아주 작은 값\\
   \beta, \gamma : batch normalization을 계속 진행할 경우,\\ activation function의 nonlinearty를 잃게 될 수 있기 때문에 추가해주는 값( 학습 parameter)
