@@ -6,6 +6,10 @@
 - **PyTorch 문법**
 - **Linear Regression**
 - **학습데이터 불러오기**
+  - CIFAR 이용하기
+  - torchvision.datasets.ImageFolder 이용하기
+  - 개인 데이터셋 이용하기1,2 ( transform class 만들기 )
+
 
 
 
@@ -26,7 +30,7 @@
   ![image](https://user-images.githubusercontent.com/71866756/146793425-faab3035-ab14-41fa-902e-3e348ff5fa91.png)
 
 
-  
+
 
 # 2. PyTorch 문법
 
@@ -340,6 +344,40 @@ print( "test_output :", test )
 
 
 
+- **torchvision.datasets.ImageFolder 이용하기**
+
+  폴더 내부에 클래스별로 이미지가 분류되어 있는 경우 사용하면 유용하다. 
+
+  <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211223015302258.png" alt="image-20211223015302258" style="zoom:50%;" />
+
+  위 구조로 되어있는 경우
+
+  ```python
+  import torchvision
+  from torchvision import transforms
+  from torch.utils.data import DataLoader
+  import matplotlib.pyplot as plt
+  %matplotlib inline	# jupyter notebook에서 plot결과를 볼 수 있게 함
+  
+  trans = transform.Compose([transforms.Resize((64,128))])
+  train_data = torchvision.datasets.ImageFolder(root='custom_data/origin_data',
+                                                transform=trans)
+  for num, value in enumerate(train_data):
+      data, label = value
+      print( num, data, label)
+      
+      if(label==0):
+          # gray일 경우
+          data.save('custom_data/train_data/gray/%d_%d.jpeg'%(num, label))
+          # transform한 결과를 새로운 폴더를 만들어서 저장하는 방법
+      else:
+          data.save('custom_data/train_data/red/%d_%d.jpeg'%(num, label))
+      # 위의 train_data/gray와 train_data/red 폴더는 미리 생성해주어야 한다. 
+      plt.imshow(data)
+  ```
+
+  
+
 - **개인 데이터셋 이용하기**
 
   ```python
@@ -410,43 +448,45 @@ print( "test_output :", test )
   train_loader = DataLoader(dest1, batch_size=10, shuffle=True)
   ```
 
+  ```python
+  class MyDataset(Dataset):
+      def __init__(self, x_data, y_data, transform=None):
+          self.x_data = x_data
+          self.y_data = y_data
+          self.transform = transform
+          self.len = len(y_data)
+  
+      def __getitem__(self, index):
+          sample = self.x_data[index], self.y_data[index]
+  
+          if self.transform:
+              sample = self.transform(sample)
+  
+          return sample
+  
+      def __len__(self):
+          return self.len
+  
+  class MyTransform:
+      def __call__(self, sample):     # 인스턴스가 호출될 때 실행된다. 이런식으로 전처리 클래스를 만들어줄 수 있다. 
+          inputs, labels = sample
+          inputs = torch.FloatTensor(inputs)
+          inputs = inputs.permute(2,0,1)
+          labels = torch.LongTensor(labels)
+  
+          transf = tr.Compose([tr.ToPILImage(), tr.Resize(128)])
+          final_output = transf(inputs)
+          return final_output, labels
+  
+  
+  #trans = tr.Compose([ToTensor()])
+  dest1 = MyDataset(train_images, train_labels, transform=MyTransform)
+  train_loader = DataLoader(dest1, batch_size=10, shuffle=True)
+  ```
+  
   
 
-```python
-class MyDataset(Dataset):
-    def __init__(self, x_data, y_data, transform=None):
-        self.x_data = x_data
-        self.y_data = y_data
-        self.transform = transform
-        self.len = len(y_data)
 
-    def __getitem__(self, index):
-        sample = self.x_data[index], self.y_data[index]
-
-        if self.transform:
-            sample = self.transform(sample)
-
-        return sample
-
-    def __len__(self):
-        return self.len
-
-class MyTransform:
-    def __call__(self, sample):     # 인스턴스가 호출될 때 실행된다. 이런식으로 전처리 클래스를 만들어줄 수 있다. 
-        inputs, labels = sample
-        inputs = torch.FloatTensor(inputs)
-        inputs = inputs.permute(2,0,1)
-        labels = torch.LongTensor(labels)
-
-        transf = tr.Compose([tr.ToPILImage(), tr.Resize(128)])
-        final_output = transf(inputs)
-        return final_output, labels
-
-
-#trans = tr.Compose([ToTensor()])
-dest1 = MyDataset(train_images, train_labels, transform=MyTransform)
-train_loader = DataLoader(dest1, batch_size=10, shuffle=True)
-```
 
 
 
