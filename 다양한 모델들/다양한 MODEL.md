@@ -65,18 +65,18 @@
 
   VGG11, VGG13, VGG16, VGG19 ( layer수에 따라 나뉨 )
 
-  <img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211223174511518.png" alt="image-20211223174511518" style="zoom:67%;" />
+  ![image](https://user-images.githubusercontent.com/71866756/147241267-a3aa4cce-86ee-491c-906d-d3a4d0e787dd.png)
+
 
 - **결과**
 
   - single scale image
 
-  <img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211223174736075.png" alt="image-20211223174736075" style="zoom:67%;" />
+  ![image](https://user-images.githubusercontent.com/71866756/147241466-a506f8ba-5ccf-4816-a828-4c74379562d5.png)
 
   - multi scale image
 
-    <img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211223175342184.png" alt="image-20211223175342184" style="zoom:67%;" />
-
+  ![image](https://user-images.githubusercontent.com/71866756/147241503-334cc620-cc9b-43ea-8f51-def5daf79e99.png)
   layer가 깊어질수록 더 나은 성능을 보였으며, C와 D의 경우, hidden layer에서 conv1, conv3를 사용했냐의 차이인데, conv1을 사용했을 때가 conv3를 사용한 경우보다 성능이 좋지 못함
 
   -> conv을 이용한 spatial context( 공간적 맥락 )를 잘 파악하는 것이 중요하다.  
