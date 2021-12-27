@@ -2,6 +2,7 @@
 
 - **목차**
   1. [VGGNet](#1-vggnet)
+  2. [ResNet](#2-resnet)
 
 # 1. VGGNet
 
@@ -65,19 +66,48 @@
 
   VGG11, VGG13, VGG16, VGG19 ( layer수에 따라 나뉨 )
 
-  ![image](https://user-images.githubusercontent.com/71866756/147241267-a3aa4cce-86ee-491c-906d-d3a4d0e787dd.png)
-
+  <img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211223174511518.png" alt="image-20211223174511518" style="zoom:67%;" />
 
 - **결과**
 
   - single scale image
 
-  ![image](https://user-images.githubusercontent.com/71866756/147241466-a506f8ba-5ccf-4816-a828-4c74379562d5.png)
+  <img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211223174736075.png" alt="image-20211223174736075" style="zoom:67%;" />
 
   - multi scale image
 
-  ![image](https://user-images.githubusercontent.com/71866756/147241503-334cc620-cc9b-43ea-8f51-def5daf79e99.png)
+    <img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20211223175342184.png" alt="image-20211223175342184" style="zoom:67%;" />
+
   layer가 깊어질수록 더 나은 성능을 보였으며, C와 D의 경우, hidden layer에서 conv1, conv3를 사용했냐의 차이인데, conv1을 사용했을 때가 conv3를 사용한 경우보다 성능이 좋지 못함
 
   -> conv을 이용한 spatial context( 공간적 맥락 )를 잘 파악하는 것이 중요하다.  
 
+
+
+# 2. ResNet
+
+- **목적**
+
+  layer를 무작정 깊게 쌓는다고 해서 성능이 좋아지는 것이 아니란 것을 실험적으로 도출하게 되었고, 층을 깊게 쌓으면서 좋은 성능을 내기 위해 다른 방법이 필요했다. ResNet은 이 필요성에 맞춰 새로운 방식을 도입하였다. 그것은 Residual Block의 출현이다. residual block은 입력값을 출력값에 더해줄 수 있도록 지름길 (shortcut)을 만들어준 것이다. 
+
+  <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211227233916174.png" alt="image-20211227233916174" style="zoom:67%;" />
+
+  기존의 신경망은 x를 target y로 매핑하는 함수 H(x)를 얻는 것이 목적이었지만, ResNet은 F(x)+x를 최소화하는 것을 목적으로 한다. x는 현시점에서 변하지 않는 값으로 F(x)를 최소화하는 것을 목적으로 한다. 즉, H(x)-x를 최소화하는 것으로 이를 잔차 (residual)이라고 한다.
+
+- **Architecture**
+
+  - input image
+    - input image size 224*224 RGB image
+  - VGG-19 base
+    - VGG-19를 기본 베이스 뼈대로 하여 convolution layer와 shortcut을 추가한 것
+    - shortcut에서 channel 수를 맞춰서 합을 구함
+
+  <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211228002543411.png" alt="image-20211228002543411" style="zoom:67%;" /><img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211228002703523.png" alt="image-20211228002703523" style="zoom:67%;" />
+
+  
+
+- **결과**
+
+  ![image-20211228002807505](../../../../AppData/Roaming/Typora/typora-user-images/image-20211228002807505.png)
+
+  plain구조에서 18층의 error가 34층의 error보다 낮은 것을 알 수 있다. 하지만 ResNet에서는 34층의 결과가 더 좋은 것으로 미루어 보아 residual 방식의 효과를 알 수 있다. 
