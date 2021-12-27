@@ -100,6 +100,8 @@
 
   기존의 신경망은 x를 target y로 매핑하는 함수 H(x)를 얻는 것이 목적이었지만, ResNet은 F(x)+x를 최소화하는 것을 목적으로 한다. x는 현시점에서 변하지 않는 값으로 F(x)를 최소화하는 것을 목적으로 한다. 즉, H(x)-x를 최소화하는 것으로 이를 잔차 (residual)이라고 한다.
 
+  이 방식을 통해 gradient vanishing/exploding 문제를 해결하였다. 
+
 - **Architecture**
 
   - input image
