@@ -3,6 +3,11 @@
 - **목차**
   1. [VGGNet](#1-vggnet)
   2. [ResNet](#2-resnet)
+  2. DenseNet
+  2. SENet
+  2. MobileNet
+  2. SqueezeNet
+  2. AutoML(NAS,NASNet)
 
 # 1. VGGNet
 
