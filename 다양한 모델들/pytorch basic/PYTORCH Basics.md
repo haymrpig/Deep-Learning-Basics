@@ -2,10 +2,10 @@
 
 목차
 
-- **Tensor**
-- **PyTorch 문법**
-- **Linear Regression**
-- **학습데이터 불러오기**
+- [**Tensor**](#1-tensor)
+- [**PyTorch 문법**](#2-pytorch-문법)
+- [**Linear Regression**](#3-linear-regression)
+- [**학습데이터 불러오기**](#4-학습-데이터-불러오기)
   - CIFAR 이용하기
   - torchvision.datasets.ImageFolder 이용하기
   - 개인 데이터셋 이용하기1,2 ( transform class 만들기 )
