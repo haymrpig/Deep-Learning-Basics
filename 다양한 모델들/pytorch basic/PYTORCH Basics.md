@@ -348,7 +348,8 @@ print( "test_output :", test )
 
   폴더 내부에 클래스별로 이미지가 분류되어 있는 경우 사용하면 유용하다. 
 
-  <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211223015302258.png" alt="image-20211223015302258" style="zoom:50%;" />
+  ![image](https://user-images.githubusercontent.com/71866756/147518363-330e009b-8519-44cd-9e58-a6fd7edc63e4.png)
+
 
   위 구조로 되어있는 경우
 
