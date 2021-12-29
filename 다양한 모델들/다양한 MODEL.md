@@ -3,6 +3,7 @@
 - **목차**
   1. [VGGNet](#1-vggnet)
   2. [ResNet](#2-resnet)
+  2. [AlexNet](#3-alexnet)
   2. DenseNet
   2. SENet
   2. MobileNet
@@ -119,3 +120,98 @@
   ![image](https://user-images.githubusercontent.com/71866756/147486268-89251097-344d-4137-a40a-9331d64d974d.png)
 
   plain구조에서 18층의 error가 34층의 error보다 낮은 것을 알 수 있다. 하지만 ResNet에서는 34층의 결과가 더 좋은 것으로 미루어 보아 residual 방식의 효과를 알 수 있다. 
+
+
+
+# 3. AlexNet
+
+- **목적**
+
+  AlexNet은 대량의 이미지 분류를 위해 만들어진 모델이다. 기본 뼈대는 LeNet-5로 되어있지만, 두개의 GPU를 사용하여 연산속도를 증가시켰다. 또한 AlexNet에서는 dropout기법을 사용했는데, 이 AlexNet 이후 CNN 구조의 GPU 구현과 dropout 적용이 보편화되었다. 
+
+  AlexNet은 overfitting을 방지하기 위해 다양한 기법들을 사용하였다. 
+
+- **용어 정리**
+
+  - label-preserving transformation
+
+    : data augmentation 기법 중 상하반전과 같은 기법을 사용할 때, label이 그대로 유지되는 것을 의미한다. MNIST의 경우 6을 반전시키면 9가 나오기 때문에 label이 유지되지 않는다. 
+
+- **Architecture**
+
+  ![image-20211229153759819](../../../../AppData/Roaming/Typora/typora-user-images/image-20211229153759819.png)
+
+  - input image
+
+    ImageNet dataset을 이용하였는데, image의 크기는 227x227로 고정되어있다. 이는 FC layer의 입력 크기를 맞추기 위해서이다. resize 방식은 이미지의 넓이와 높이 중 더 짧은 쪽을 227로 고정시키고 중앙 부분을 자르는 center crop을 이용하였다. 
+
+  - conv layer
+
+    총 5개의 conv layer가 사용되었다. 
+
+    - conv1 
+
+      96 kernels of size 11x11, stride=4, padding=0
+
+    - conv2
+
+      256 kernels of size 5x5, stride=1, padding=2
+
+    - conv3
+
+      384 kernels of size 3x3, stride=1, padding=1
+
+    - conv4
+
+      384 kernels of size 3x3, stride=1, padding=1
+
+    - conv5
+
+      256 kernels of size 3x3, stride=1, padding=1
+
+    두 개의 GPU로 나눠서 학습했지만, 2번째에서 3번째 conv layer에서는 두개의 GPU가 서로 연산을 뒤섞어서 진행하였다. 
+
+  - pooling layer
+
+    Overlapping pooling 기법을 사용하였다. 요즘에는 보통 pooling하는 size와 stride를 일치시키지만, 이 모델에서는 overlapping하여 pooling을 진행한다. 
+
+    <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211229151424873.png" alt="image-20211229151424873" style="zoom:67%;" />
+
+  - FC layer
+
+    세개의 fully connected layer로 구성되어있다. 1번째와 2번째에 dropout 기법을 이용하였다. 
+
+  - 그 외
+
+    - data augmentation
+
+      : label-preserving transform
+
+    - Dropout
+
+      : dropout을 통해 training 시간을 줄이며, overfitting을 방지할 수 있다.
+
+    - ReLU
+
+    - RGB intensify (PCA)
+
+    - Multi GPUs
+
+    - Local Response Normalization
+
+      ![image-20211229153456842](../../../../AppData/Roaming/Typora/typora-user-images/image-20211229153456842.png)
+
+      : 강한 자극이 주변의 약한자극을 전달하는 것을 막는 효과를 준다. conv filter의 결과가 매우 높다면 그 주변 conv filter의 결과값이 상대적으로 작아진다. 
+
+      -> 극단적인 경우 dropout 효과를 일으킬 수 있다. 
+
+- **결과**
+
+  <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211229153827951.png" alt="image-20211229153827951" style="zoom:67%;" />
+
+  <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211229153840299.png" alt="image-20211229153840299" style="zoom:67%;" />
+
+
+
+
+
