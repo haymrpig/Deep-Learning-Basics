@@ -2,10 +2,10 @@
 
 목차
 
-- **Tensor**
-- **PyTorch 문법**
-- **Linear Regression**
-- **학습데이터 불러오기**
+- [**Tensor**](#1-tensor)
+- [**PyTorch 문법**](#2-pytorch-문법)
+- [**Linear Regression**](#3-linear-regression)
+- [**학습데이터 불러오기**](#4-학습-데이터-불러오기)
   - CIFAR 이용하기
   - torchvision.datasets.ImageFolder 이용하기
   - 개인 데이터셋 이용하기1,2 ( transform class 만들기 )
@@ -348,7 +348,8 @@ print( "test_output :", test )
 
   폴더 내부에 클래스별로 이미지가 분류되어 있는 경우 사용하면 유용하다. 
 
-  <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211223015302258.png" alt="image-20211223015302258" style="zoom:50%;" />
+  ![image](https://user-images.githubusercontent.com/71866756/147518363-330e009b-8519-44cd-9e58-a6fd7edc63e4.png)
+
 
   위 구조로 되어있는 경우
 
