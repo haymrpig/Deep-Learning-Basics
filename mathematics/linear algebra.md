@@ -6,7 +6,7 @@
    - Sum of outer product
    - Subspace
    - Basis( 기저 )
-3. [선형독립/종속 (Linearly independent/dependent)](#3-선형독립/종속)
+3. [선형독립/종속 (Linearly independent/dependent)](#3-선형독립종속)
 4. [선형변환](#4-선형변환)
    - 용어정리
    - ONTO( 전사 ) / ONE-TO-ONE( 일대일 )
@@ -16,7 +16,7 @@
 6. [Projection](#6-projection)
    - Orthogonal basis
    - Gram-Schmidt Orthogonalization
-7. [고유벡터 (Eigenvectors) & 고유값 (Eigenvalues)](#7-eigenvectors&eigenvalues)
+7. [고유벡터 (Eigenvectors) & 고유값 (Eigenvalues)](#7-eigenvectors--eigenvalues)
 8. [영공간 (Null Space)](#8-영공간-null-space)
 
 # 1. 행렬
@@ -289,39 +289,22 @@ b를 projection시켜 b 햇을 구할 수 있다. 이 때 식은 위에서 구�
 
 # 7. Eigenvectors & Eigenvalues
 
-- **고유벡터 (Eigenvectors) & 고유값 (Eigenvalues)**
-  $$
-  고유벡터란\space 0이\space 아닌\space R^{n*n}인 \space 벡터\space A가 \space있을\space 때,\\
-  \space Ax = \lambda x를\\
-  \space 만족하는\space 벡터\space x를 의미한다.(\lambda은\space 상수로 \space 고유값, eigenvalue라고\space 불린다.)
-  $$
+- **고유벡터 (Eigenvectors) & 고유값 (Eigenvalues)**  
+  ![image](https://user-images.githubusercontent.com/71866756/148072376-9704329d-6728-43f3-a3d7-37b8ea524bf4.png)  
   즉, 입력이 x라고 할 때, 고유벡터는 **방향은 바뀌지 않고 크기만 바뀌는 벡터**를 의미한다.
 
   고유벡터는 계산이 효율적이라는 장점이 있다. 
 
   
 
-  **EX)** 
-  $$
-  \begin{bmatrix}
-  2&6\\5&3
-  \end{bmatrix}
-  \begin{bmatrix}
-  1\\1
-  \end{bmatrix}
-  =8
-  \begin{bmatrix}
-  1\\1
-  \end{bmatrix}
-  $$
+  **EX)**   
+  ![image](https://user-images.githubusercontent.com/71866756/148072452-27d9bf79-758e-4644-9ce4-61259c70a166.png)  
   좌변의 경우에는 2 * 1 + 6 * 1, 5 * 1 + 3 * 1로 총 6번의 연산이 필요하지만, Eigenvector와 Eigenvalues를 알고 있는 경우에는 2번의 연산만 하면 값을 구할 수 있다.  
 
   
 
-- **고유벡터 (Eigenvectors) & 고유값 (Eigenvalues) 구하기**
-  $$
-  (A-\lambda I)x=0
-  $$
+- **고유벡터 (Eigenvectors) & 고유값 (Eigenvalues) 구하기**  
+  ![image](https://user-images.githubusercontent.com/71866756/148072530-ff96d9e8-b821-41b6-a400-26e291ef7966.png)  
   위 경우에서 Ax=0일 경우, x=0으로 무조건 해가 하나 존재하는 trivial solution, 즉 linearly independent하게 된다. 이때, A에서 람다*I를 빼주었을 때, 또 다른 해가 존재하는 경우 **선형종속**(Linearly dependent)하게 만들어 주는 것이 고유벡터, 고유값을 구하는 과정이다. 
 
   
@@ -332,18 +315,10 @@ Ax=0을 만족시키는 x를 Null Space of A, Nul A라고 부른다.
 
 Ax=0을 달리 말하면, A의 각각의 row vector에 대해서 x는 모두와 직교 (orthogonal)하다는 것을 의미한다. 
 
-**EX)**
-$$
-A = \begin{bmatrix}
-1&2\\3&4\\5&6
-\end{bmatrix}
-일\space 때, x는 \begin{bmatrix}1&2\end{bmatrix},\begin{bmatrix}3&4\end{bmatrix},\begin{bmatrix}5&6\end{bmatrix} 모두와\space 직교한다고\space 볼\space 수\space 있다.
-$$
- **EX1)**
-$$
-R^3인\space 공간에서\space A=\begin{bmatrix}1&2&3\end{bmatrix}으로\space 주어졌을\space 때,\\ NulA는\space 그람슈미츠를\space 이용하여\space 두개를\space 더\space 구할\space 수\space 있다.\space (3-1=2)
-$$
-<img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20220104231002690.png" alt="image-20220104231002690" style="zoom:67%;" />
+**EX)**  
+![image](https://user-images.githubusercontent.com/71866756/148072568-ad394202-7367-4657-83f4-8d5861bb2281.png)  
+ **EX1)**  
+![image](https://user-images.githubusercontent.com/71866756/148072616-858eab9c-03f2-4ac6-8e55-e0d815037525.png)  
 
 즉, Nul A는 두개를 더 구할 수 있으므로, **하나의 평면**을 나타내게 된다. 
 
