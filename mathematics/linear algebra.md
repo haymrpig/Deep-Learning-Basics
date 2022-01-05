@@ -18,6 +18,8 @@
    - Gram-Schmidt Orthogonalization
 7. [고유벡터 (Eigenvectors) & 고유값 (Eigenvalues)](#7-eigenvectors--eigenvalues)
 8. [영공간 (Null Space)](#8-영공간-null-space)
+9. [대각화 (Diagonalization)](#9-대각화-diagonalization)
+10. [고유값 분해 (Eigendecomposition)](#10-고유값-분해-eigendecomposition)
 
 # 1. 행렬
 
@@ -329,7 +331,6 @@ b를 projection시켜 b 햇을 구할 수 있다. 이 때 식은 위에서 구�
   **EX)**  
   ![image](https://user-images.githubusercontent.com/71866756/148206248-02331c9f-becd-4490-be0a-5b3b611c8f0d.png)  
   
-
 - **Eigenspace**
 
   eigenvalue값에 대응되는 eigenvector이 존재하는 공간을 eigenspace라고 한다.   
@@ -353,11 +354,79 @@ Ax=0을 달리 말하면, A의 각각의 row vector에 대해서 x는 모두와 
 
 
 
+# 9. 대각화 (Diagonalization)
+
+대각행렬이란 대각성분을 제외한 모든 성분이 0인 행렬을 의미한다. 일반 행렬에서 대각행렬로 만드는 것이 대각화 (diagonalization)이다. 
+
+- **대각화 방법과 의미**
+
+  행렬 A를 대각행렬 D로 만드는 방법으로 아래 식과 같다. 
+
+  ( 하지만 모든 행렬이 대각화가 가능한 것은 아니다. 아래 식을 만드는 V행렬을 찾을 수 있는 경우, V행렬이 역행렬이 존재할 경우 가능하다. )
+  $$
+  D = V^{-1}AV
+  $$
+  이러한 대각화가 가능한 행렬 A를 diagonalizable한 행렬이라 한다. 
+
+  'diagonalizable'은 결국,  V가 3개의 linearly independent eigenvectors를 가져야 한다와 동일한 의미로 해석될 수 있다. ( 아래 식으로 증명 )
+  $$
+  V=\begin{bmatrix}v_1&v_2&...&v_n\end{bmatrix}\\
+  D=\begin{bmatrix}\lambda_1&0&...&0\\0&\lambda_2&...&...\\...&...&...&0\\0&...&0&\lambda_n\end{bmatrix}\\\\
+  \begin{aligned}
+  &D = V^{-1}AV\quad =>\quad VD=AV\\\\
+  &=>\begin{bmatrix}Av_1&Av_2&...&Av_n\end{bmatrix}=\begin{bmatrix}\lambda_1 v_1&\lambda_2 v_2&...&\lambda_n v_n\end{bmatrix}\\
+  &=> Av_1=\lambda_1 v_1,\space\space Av_2=\lambda_2 v_2,\space\space...\space\space Av_n=\lambda_n v_n\\
+  &(v_1,v_2,...,v_n\space : \space eigenvectors,\;\;\;\; \lambda_1,\lambda_2,...,\lambda_n\space :\space eigenvalues )
+  \end{aligned}
+  $$
+  => 여기서 V가 역행렬을 가지려면 V의 column들이 linearly independent해야 하기 때문이다. 
 
 
 
+# 10. 고유값 분해 (Eigendecomposition)
 
+eigendecomposition이란 대각화된 행렬을 다시 원래대로 복원하는 분해하는 과정이라고 생각할 수 있다. 
+$$
+D=V^{-1}AV\quad=>\quad A=VDV^{-1}
+$$
+여기서 우측에 있는 식이 고유값 분해이다. diagonalizable 한 A행렬은 eigendecomposition을 가지고 있다고 할 수 있다. 
 
+- **고유값 분해의 필요성**
+
+  이전에 말했듯이 고유값을 이용하면 계산을 효율적으로 할 수 있다는 장점이 있었다. 하지만 만약 어떤 행렬이 고유벡터가 아니라면 복잡한 계산을 해야한다. 이 때 고유값 분해를 이용할 수 있다. 고유값을 가지지 않는 행렬을 아래처럼 선형결합 형태로 만들 수가 있다. 
+  $$
+  A=VDV^{-1}\\
+  T(x)=Ax\\
+  T(x)=Ax=VDV^{-1}x=V(D(V^{-1}x))
+  $$
+   선형결합인 경우, 합친 후 matrix곱을 하나, matrix곱을 먼저하고 합치나 동일하다. 
+
+  즉, 쉽게 예로 들면
+  $$
+  A=\begin{bmatrix}2&3\\5&1\end{bmatrix}\\
+  x=\begin{bmatrix}3\\4\end{bmatrix}\\
+  Ax=\begin{bmatrix}2&3\\5&1\end{bmatrix}(\begin{bmatrix}1\\2\end{bmatrix}+\begin{bmatrix}2\\2\end{bmatrix})=\begin{bmatrix}2&3\\5&1\end{bmatrix}\begin{bmatrix}1\\2\end{bmatrix}+\begin{bmatrix}2&3\\5&1\end{bmatrix}\begin{bmatrix}2\\2\end{bmatrix}\\
+  만약 \begin{bmatrix}1\\2\end{bmatrix}의\space eigenvalue를\space 4라고\space 하고, \begin{bmatrix}2\\2\end{bmatrix}의\space eigenvalue를\space -1라고\space 하면\\
+  위의\space 식을\space 그대로\space 계산하기보다\space 단순히\space 4\begin{bmatrix}1\\2\end{bmatrix}-1\begin{bmatrix}2\\2\end{bmatrix}이\space 효율적이라는\space 것이다.
+  $$
+  이런식으로 만약 x의 고유값이 존재하지 않을 경우 계산이 복잡해지지만, x, 즉 [[3],[4]]를 두개의 선형결합으로 나타낸 후, 각각의 eigenvalue를 구하면 계산을 쉽게 할 수 있다는 의미이다.  
+
+  간단하게 그림으로 표현하면 아래와 같다. 
+
+  ![image-20220105221441012](../../../../AppData/Roaming/Typora/typora-user-images/image-20220105221441012.png)
+
+  - **A^k 구하기**
+
+  $$
+  A*A*...*Ax=A^kx\quad 이\space 식을\space 여러번\space 연산을\space 통해\space 구할수도\space 있지만\\
+  A=VDV^{-1}을\space 이용하면\\
+  \begin{aligned}
+  A^k&=(VDV^{-1})(VDV^{-1})...(VDV^{-1})\\
+  &=VD^kV^{-1}로\space 간단하게\space 구할\space 수\space 있다.
+  \end{aligned}
+  $$
+
+  
 
 
 
