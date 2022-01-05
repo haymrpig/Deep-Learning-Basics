@@ -268,12 +268,20 @@ b를 projection시켜 b 햇을 구할 수 있다. 이 때 식은 위에서 구�
 
     만약 두개의 feature가 있다고 할 때, 두 벡터가 비슷한 경향을 보인다고 하자. 그럴 경우, 한 벡터는 다른 벡터의 방향으로 projection된다고 할 수 있고, 이 두 벡터는 직교에서 멀어질 것이다. 그러면 이러한 조그만 비슷한 경향성에 의해 weight값이 크게 변할 수 있고, 이러한 데이터의 오류 때문에 결과가 안 좋아질 수 있다. ( 아래 그림 )
 
+    여기서 a1과 a2를 학습할 데이터의 key값들이라고 생각하고, dest는 출력 y값이라고 생각하자.
+
+    만약 a1과 a2가 비슷한 경향을 보이게 된다면 a1과 a2에 특정 값을 곱하여 dest값이 되게 하기 위해서는 a1에는 음수방향으로 꽤 큰 값을 곱해줘야 하며, a2역시 양수방향으로 큰 값을 곱해줘야 한다. (dest에서 긋는 선분과 a2는 평행해야 한다.)
+
+    이 때, weight의 절댓값이 매우 커질 수가 있기 때문에 좋지 않은 결과가 나올 가능성이 높다는 것이다. 
+
     ![image](https://user-images.githubusercontent.com/71866756/145265807-500104d9-153f-4bf9-aed6-5dc4168d5ca5.png)
-
+    
     이 때 regularization기법을 사용한다. 
-
+    
+    특정 값을 더해줌으로써, 두 벡터의 경향을 다르게 만들어 주는 것이다. 
+    
     ![image](https://user-images.githubusercontent.com/71866756/145265838-5346f35e-4472-404e-98d0-8dbbc1ed7a94.png)
-
+    
     
 
 - **Gram-Schmidt Orthogonalization**
@@ -308,6 +316,38 @@ b를 projection시켜 b 햇을 구할 수 있다. 이 때 식은 위에서 구�
   위 경우에서 Ax=0일 경우, x=0으로 무조건 해가 하나 존재하는 trivial solution, 즉 linearly independent하게 된다. 이때, A에서 람다*I를 빼주었을 때, 또 다른 해가 존재하는 경우 **선형종속**(Linearly dependent)하게 만들어 주는 것이 고유벡터, 고유값을 구하는 과정이다. 
 
   
+  
+- **고유값 구하는 식**
+
+  우선 역행렬에 대해서 생각해보자. 역행렬의 경우 정방행렬에서만 정의될 수 있으며 만약 정방행렬의 역행렬이 존재하지 않는 경우
+  $$
+  det(A-\lambda I)=0
+  $$
+  이런 식으로 나타낼 수 있으며, 역행렬이 존재하지 않으면 정방행렬의 column은 linearly dependent하다고 할 수 있다. 즉, 고유값을 구하기 위해서는 dependent한 경우를 찾는 것이고, 그것은 위의 식과 일치한다고 할 수 있다. 
+
+  따라서 위의 식을 풀면 고유값 (lambda)의 값을 구할 수 있다. 
+
+  **EX)**
+  $$
+  A=\begin{bmatrix}2&6\\5&3\end{bmatrix}\\
+  det(A)=det\begin{bmatrix}2&6\\5&3\end{bmatrix}=6-30=-24\neq 0\\
+  \begin{aligned}
+  det(A-\lambda I)&=det\begin{bmatrix}2-\lambda&6\\5&3-\lambda\end{bmatrix}\\
+  &=(2-\lambda)(3-\lambda)-30\\
+  &=-\lambda^2-5\lambda-25\\
+  &=(8-\lambda)(-3-\lambda)\\
+  &=0\\\\
+  \lambda = &-3\space or\space 8
+  \end{aligned}
+  $$
+
+- **Eigenspace**
+
+  eigenvalue값에 대응되는 eigenvector이 존재하는 공간을 eigenspace라고 한다. 
+  $$
+  Ax=\lambda x
+  $$
+  위 식을 만족한다고 할 수 있는데, 이 때, eigenspace상의 어떠한 벡터를 입력 x로 넣어도 eigenspace를 벗어나는 vector는 나오지 않는다.
 
 # 8. 영공간 (Null Space) 
 
