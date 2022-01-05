@@ -319,34 +319,21 @@ b를 projection시켜 b 햇을 구할 수 있다. 이 때 식은 위에서 구�
   
 - **고유값 구하는 식**
 
-  우선 역행렬에 대해서 생각해보자. 역행렬의 경우 정방행렬에서만 정의될 수 있으며 만약 정방행렬의 역행렬이 존재하지 않는 경우
-  $$
-  det(A-\lambda I)=0
-  $$
+  우선 역행렬에 대해서 생각해보자. 역행렬의 경우 정방행렬에서만 정의될 수 있으며 만약 정방행렬의 역행렬이 존재하지 않는 경우  
+  ![image](https://user-images.githubusercontent.com/71866756/148206190-c5cfd6ff-e800-4845-810d-76ab567b03ce.png)  
+
   이런 식으로 나타낼 수 있으며, 역행렬이 존재하지 않으면 정방행렬의 column은 linearly dependent하다고 할 수 있다. 즉, 고유값을 구하기 위해서는 dependent한 경우를 찾는 것이고, 그것은 위의 식과 일치한다고 할 수 있다. 
 
   따라서 위의 식을 풀면 고유값 (lambda)의 값을 구할 수 있다. 
 
-  **EX)**
-  $$
-  A=\begin{bmatrix}2&6\\5&3\end{bmatrix}\\
-  det(A)=det\begin{bmatrix}2&6\\5&3\end{bmatrix}=6-30=-24\neq 0\\
-  \begin{aligned}
-  det(A-\lambda I)&=det\begin{bmatrix}2-\lambda&6\\5&3-\lambda\end{bmatrix}\\
-  &=(2-\lambda)(3-\lambda)-30\\
-  &=-\lambda^2-5\lambda-25\\
-  &=(8-\lambda)(-3-\lambda)\\
-  &=0\\\\
-  \lambda = &-3\space or\space 8
-  \end{aligned}
-  $$
+  **EX)**  
+  ![image](https://user-images.githubusercontent.com/71866756/148206248-02331c9f-becd-4490-be0a-5b3b611c8f0d.png)  
+  
 
 - **Eigenspace**
 
-  eigenvalue값에 대응되는 eigenvector이 존재하는 공간을 eigenspace라고 한다. 
-  $$
-  Ax=\lambda x
-  $$
+  eigenvalue값에 대응되는 eigenvector이 존재하는 공간을 eigenspace라고 한다.   
+  ![image](https://user-images.githubusercontent.com/71866756/148206317-8fa2f5bc-d399-4d06-abb6-d80245ce9dd1.png)  
   위 식을 만족한다고 할 수 있는데, 이 때, eigenspace상의 어떠한 벡터를 입력 x로 넣어도 eigenspace를 벗어나는 vector는 나오지 않는다.
 
 # 8. 영공간 (Null Space) 
