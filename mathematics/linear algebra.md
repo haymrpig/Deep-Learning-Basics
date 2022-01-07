@@ -430,10 +430,90 @@ V와 V^-1는 역관계이며, D의 경우는 diagonal matrix여야 한다.
 
   즉, 아래 식과 같다고 할 수 있다.   
   ![image](https://user-images.githubusercontent.com/71866756/148512670-cb09cee4-e5c6-423d-bba7-c06ebd1d3d1a.png)  
-  또한,   
+  또한, V는 orthonormal한 vector들로 이루어져 있고, nxn이므로 V^-1=V^T이다.  
   ![image](https://user-images.githubusercontent.com/71866756/148512699-4dded537-4cbc-495c-8b1a-2adaef7d51aa.png)  
 
-- 
+- **SVD 구하기**
+
+  SVD는 구하는 알고리즘이 딱히 개별적으로 존재하지 않기 때문에, eigendecomposition과 같은 방식으로 진행한다. 
+  $$
+  AA^T=U\Sigma V^TV\Sigma^T U^T=U\Sigma^2U^T,\quad (V^{-1}=V^T, \Sigma는\; diagonal이기\; 때문에)\\
+  A^TA=V\Sigma U^TU\Sigma V^T=V\Sigma^2V^T,\quad (U^{-1}=U^T,\Sigma는\; diagonal이기\; 때문에)
+  \\\\
+  1.\; U와\; V는\; Orthogonal\; eigenvector\; matrices이다.\\ 
+  2.\; Eigenvalues\; in\; \Sigma^2은\; 모두\; 양수이다. \\
+  3.\; Eigenvalues\; in\; \Sigma^2은\; AA^T와\; A^TA는\;동일하다.\\
+  $$
+
+  - 위 조건에 앞서 우선적으로 
+    $$
+    AA^T가\; diagonalizable해야\; 되는데,\; 이는\; 항상\; 그렇다는\; 것을\; 증명할\; 수\; 있다.\\
+    일반적으로 A\in R^{n*n}이\\ diagonalizable한 것은\; n\; linearly\; independent\; eigenvectors가\; 존재하다와\; 필요충분이다. \\\\
+    
+    symmetric한\; 행렬은\; AT=A이다.\\
+    따라서,\;(AA^T)^T=AA^T이므로\; AA^T는\;symmetric한\; matrix이다. (대칭행렬)\\\\
+    symmetric한\; matrix는\; 항상\; diagonalizable하므로,\\ 
+    AA^T는\;diagonalizable하면서\; n\; lineraly\; independent\; eigenvector를\; 가진다. \\
+    $$
+
+  
+
+- **Symmetric matrices의 Spectral Theorem**
+  $$
+  Consider\; a\; symmetric\; matrix\; S\in R^{n*n},\; where\; S^T=S\\
+  $$
+
+  - S has n real eigenvalues, counting multiplicities
+  - The dimension of the eigenspace for each eigenvalue equals the multiplicity of lambda as a root of the characteristic equation
+  - the eigenspaces are mutually orthogonal. that is, eigenvectors corresponding to different eigenvalues are orthogonal
+  - to sum up, A is orthogonally diagonalizable
 
 
+
+- **Positive Definite Matrices**
+
+  직관적으로 생각해보면, 2차원 포물선이 항상 0보다 큰 포물선이 있을 것이다. 그러한 것처럼 matrix중에도 어떤 값을 넣어도 양수인 matrix가 존재한다. 이를 positive definite matrix라고 한다. 
+
+  positive definite matrix는 정방행렬이다. 
+
+  
+
+  - positive definite matrix의 조건
+
+  $$
+  A\in R^{n*n}is\; positive\; definite\; if\; x^TAx>0,\;\forall x\neq 0
+  $$
+
+  - positive semi-definite matrix의 조건
+
+  $$
+  A\in R^{n*n}is\; positive\; semi\;definite\; if\; x^TAx\geq 0,\;\forall x\neq 0
+  $$
+
+  - Theroem
+    $$
+    A\in R^{n*n}is\; positive\; definite\\ if\; and\; only\; if\; the\; eigenvalues\; of\; A\; are\; all\; positive
+    $$
+
+
+
+- **Symmetric + positive definite matrix**
+
+  위 두가지 개념을 합친 matrix의 경우 아래와 같다. 
+
+  ![image-20220107193309603](../../../../AppData/Roaming/Typora/typora-user-images/image-20220107193309603.png)
+
+  - 위 개념에 대해 생각해보면 아래 식이 성립한다.
+    $$
+    x^TAA^Tx=(x^TA)(A^Tx)=(A^Tx)^T(A^Tx)=||A^Tx||^2\geq 0\\
+    x^TA^TAx=(x^TA^T)(Ax)=(Ax)^T(Ax)=||Ax||^2\geq 0
+    $$
+    위 식에 따라서 SVD 구하기의 1,2번 조건이 성립하는 것을 알 수 있다. 
+
+
+
+- **최종 정리**
+  - R^mxn의 A가 주어졌을 때, SVD는 항상 존재한다.
+  - R^nxn의 A가 주어졌을 때, eigendecomposition은 존재하지 않을 수도 있지만, SVD는 항상 존재한다. 
+  - 정사각, 대칭 positive (semi-)definite 행렬 S이 주어지면, eigendecomposition은 항상 존재하며, 이는 SVD와 동일하다. 
 
