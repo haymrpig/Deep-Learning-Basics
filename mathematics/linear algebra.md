@@ -20,6 +20,7 @@
 8. [영공간 (Null Space)](#8-영공간-null-space)
 9. [대각화 (Diagonalization)](#9-대각화-diagonalization)
 10. [고유값 분해 (Eigendecomposition)](#10-고유값-분해-eigendecomposition)
+11. [특이값 분해 (SVD, Singular Value Decomposition)](#11-특이값-분해-svd-singular-value-decomposition)
 
 # 1. 행렬
 
