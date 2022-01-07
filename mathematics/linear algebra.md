@@ -402,21 +402,17 @@ V와 V^-1는 역관계이며, D의 경우는 diagonal matrix여야 한다.
 
 # 11. 특이값 분해 (SVD, Singular Value Decomposition)
 
-특이값 분해는 rectangular matrix, 즉, 
-$$
-A\in R^{m*n}
-$$
-의 경우에 사용된다. 
-$$
-A=U\Sigma V^T
-$$
+특이값 분해는 rectangular matrix, 즉,   
+![image](https://user-images.githubusercontent.com/71866756/148512534-a79020ba-8474-495e-8ed9-af9460e4a242.png)  
+의 경우에 사용된다.   
+![image](https://user-images.githubusercontent.com/71866756/148512561-6a92b99b-edb2-4246-8fbd-f224b53f2ff2.png)  
 위 식으로 분해하는 것을 특이값 분해라고 한다. 
 
 여기서 중요한 것은, U와 V는 모두 orthogonal한 vector를 가지며,  시그마는 diagonal matrix여야 한다.
 
-( U의 column vector들이 orthonomal, V^T의 row vector들이 orthonomal ) 
+( U의 column vector들이 orthonomal, V^T의 row vector들이 orthonomal )   
 
-![image-20220107164404996](../../../../AppData/Roaming/Typora/typora-user-images/image-20220107164404996.png)
+![image](https://user-images.githubusercontent.com/71866756/148512597-8ae540be-5a93-4acc-ae8d-f3f4e9902ff3.png)  
 
 => U : mxm, V^T : nxn
 
@@ -428,24 +424,14 @@ $$
 
   orthonomal한 U와 V는 무수히 많다. 그람슈미츠 방법을 사용할 때를 생각해보면 첫번째 벡터와, 그에 orthogonal한게 만든 두번째 벡터를 구할 수 있고, 이 둘의 순서를 바꾼다고 해도 orthonomal한 벡터를 찾을 수 있다. 즉, 영역에 대해 span하는 orthonomal한 벡터의 조합은 여러개가 나올 수 있다는 뜻이다. U,V도 마찬가지로 여러개가 나올 수 있지만, 여기서 특정한 U,V의 조합을 찾으려고 한다. 
 
-  이 때 아래 수식을 이용한다. 
-  $$
-  Av_i=\sigma_iu_i
-  $$
+  이 때 아래 수식을 이용한다.   
+  ![image](https://user-images.githubusercontent.com/71866756/148512648-40158b75-e256-4247-af4f-c0107c2bd5b4.png)  
   이렇게 u와 v를 jointly해서 특정한 orthonomal한 vector들을 찾을 수가 있다. 
 
-  즉, 아래 식과 같다고 할 수 있다. 
-  $$
-  AV=U\Sigma\Leftrightarrow\begin{bmatrix}Av_1&Av_2&...&Av_n\end{bmatrix}=\begin{bmatrix}\sigma_1u_1&\sigma_2u_2&...&\sigma_nu_n\end{bmatrix}
-  $$
-  또한, 
-  $$
-  V\in R^{n*n}이므로\\
-  V^{-1}=V^T인\; 것을\; 알\; 수\; 있다.\\\\
-  결과적으로\\
-  AV=U\Sigma\Leftrightarrow A=U\Sigma V^T\\
-  가\;된다. 
-  $$
+  즉, 아래 식과 같다고 할 수 있다.   
+  ![image](https://user-images.githubusercontent.com/71866756/148512670-cb09cee4-e5c6-423d-bba7-c06ebd1d3d1a.png)  
+  또한,   
+  ![image](https://user-images.githubusercontent.com/71866756/148512699-4dded537-4cbc-495c-8b1a-2adaef7d51aa.png)  
 
 - 
 
