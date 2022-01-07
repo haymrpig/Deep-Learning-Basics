@@ -435,33 +435,16 @@ V와 V^-1는 역관계이며, D의 경우는 diagonal matrix여야 한다.
 
 - **SVD 구하기**
 
-  SVD는 구하는 알고리즘이 딱히 개별적으로 존재하지 않기 때문에, eigendecomposition과 같은 방식으로 진행한다. 
-  $$
-  AA^T=U\Sigma V^TV\Sigma^T U^T=U\Sigma^2U^T,\quad (V^{-1}=V^T, \Sigma는\; diagonal이기\; 때문에)\\
-  A^TA=V\Sigma U^TU\Sigma V^T=V\Sigma^2V^T,\quad (U^{-1}=U^T,\Sigma는\; diagonal이기\; 때문에)
-  \\\\
-  1.\; U와\; V는\; Orthogonal\; eigenvector\; matrices이다.\\ 
-  2.\; Eigenvalues\; in\; \Sigma^2은\; 모두\; 양수이다. \\
-  3.\; Eigenvalues\; in\; \Sigma^2은\; AA^T와\; A^TA는\;동일하다.\\
-  $$
+  SVD는 구하는 알고리즘이 딱히 개별적으로 존재하지 않기 때문에, eigendecomposition과 같은 방식으로 진행한다.   
+  ![image](https://user-images.githubusercontent.com/71866756/148532837-84e48fb6-5104-4c80-8165-0b8267118177.png)  
 
-  - 위 조건에 앞서 우선적으로 
-    $$
-    AA^T가\; diagonalizable해야\; 되는데,\; 이는\; 항상\; 그렇다는\; 것을\; 증명할\; 수\; 있다.\\
-    일반적으로 A\in R^{n*n}이\\ diagonalizable한 것은\; n\; linearly\; independent\; eigenvectors가\; 존재하다와\; 필요충분이다. \\\\
-    
-    symmetric한\; 행렬은\; AT=A이다.\\
-    따라서,\;(AA^T)^T=AA^T이므로\; AA^T는\;symmetric한\; matrix이다. (대칭행렬)\\\\
-    symmetric한\; matrix는\; 항상\; diagonalizable하므로,\\ 
-    AA^T는\;diagonalizable하면서\; n\; lineraly\; independent\; eigenvector를\; 가진다. \\
-    $$
+  - 위 조건에 앞서 우선적으로   
+    ![image](https://user-images.githubusercontent.com/71866756/148532891-7adef1ea-f45e-4a4c-9636-6dfd65175020.png)  
 
   
 
-- **Symmetric matrices의 Spectral Theorem**
-  $$
-  Consider\; a\; symmetric\; matrix\; S\in R^{n*n},\; where\; S^T=S\\
-  $$
+- **Symmetric matrices의 Spectral Theorem**  
+  ![image](https://user-images.githubusercontent.com/71866756/148532945-00b46625-f158-4d03-89c4-a2a41f67ce09.png)  
 
   - S has n real eigenvalues, counting multiplicities
   - The dimension of the eigenspace for each eigenvalue equals the multiplicity of lambda as a root of the characteristic equation
@@ -478,36 +461,27 @@ V와 V^-1는 역관계이며, D의 경우는 diagonal matrix여야 한다.
 
   
 
-  - positive definite matrix의 조건
+  - positive definite matrix의 조건  
 
-  $$
-  A\in R^{n*n}is\; positive\; definite\; if\; x^TAx>0,\;\forall x\neq 0
-  $$
+  ![image](https://user-images.githubusercontent.com/71866756/148532980-5e6584bd-adff-4da5-ab46-d6670d87facb.png)  
 
-  - positive semi-definite matrix의 조건
+  - positive semi-definite matrix의 조건  
 
-  $$
-  A\in R^{n*n}is\; positive\; semi\;definite\; if\; x^TAx\geq 0,\;\forall x\neq 0
-  $$
+  ![image](https://user-images.githubusercontent.com/71866756/148533009-03f74e70-9937-4793-90ee-cda5d5b9ffd4.png)  
 
-  - Theroem
-    $$
-    A\in R^{n*n}is\; positive\; definite\\ if\; and\; only\; if\; the\; eigenvalues\; of\; A\; are\; all\; positive
-    $$
+  - Theroem  
+    ![image](https://user-images.githubusercontent.com/71866756/148533031-2f5918ba-4d95-4816-a7fe-102c4cd545de.png)  
 
 
 
 - **Symmetric + positive definite matrix**
 
-  위 두가지 개념을 합친 matrix의 경우 아래와 같다. 
+  위 두가지 개념을 합친 matrix의 경우 아래와 같다.   
 
-  ![image-20220107193309603](../../../../AppData/Roaming/Typora/typora-user-images/image-20220107193309603.png)
+  ![image](https://user-images.githubusercontent.com/71866756/148533073-3a16fe7a-b568-4f11-b300-b6a1845a3b64.png)  
 
-  - 위 개념에 대해 생각해보면 아래 식이 성립한다.
-    $$
-    x^TAA^Tx=(x^TA)(A^Tx)=(A^Tx)^T(A^Tx)=||A^Tx||^2\geq 0\\
-    x^TA^TAx=(x^TA^T)(Ax)=(Ax)^T(Ax)=||Ax||^2\geq 0
-    $$
+  - 위 개념에 대해 생각해보면 아래 식이 성립한다.  
+    ![image](https://user-images.githubusercontent.com/71866756/148533104-aece762b-e203-4e15-906c-0b658febbf4a.png)  
     위 식에 따라서 SVD 구하기의 1,2번 조건이 성립하는 것을 알 수 있다. 
 
 
