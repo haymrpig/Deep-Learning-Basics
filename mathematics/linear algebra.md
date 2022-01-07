@@ -378,6 +378,8 @@ eigendecomposition이란 대각화된 행렬을 다시 원래대로 복원하는
 ![image](https://user-images.githubusercontent.com/71866756/148224726-c0a97759-4633-497a-bc8c-46d382fdcdfe.png)  
 여기서 우측에 있는 식이 고유값 분해이다. diagonalizable 한 A행렬은 eigendecomposition을 가지고 있다고 할 수 있다. 
 
+V와 V^-1는 역관계이며, D의 경우는 diagonal matrix여야 한다. 
+
 - **고유값 분해의 필요성**
 
   이전에 말했듯이 고유값을 이용하면 계산을 효율적으로 할 수 있다는 장점이 있었다. 하지만 만약 어떤 행렬이 고유벡터가 아니라면 복잡한 계산을 해야한다. 이 때 고유값 분해를 이용할 수 있다. 고유값을 가지지 않는 행렬을 아래처럼 선형결합 형태로 만들 수가 있다.   
@@ -397,21 +399,54 @@ eigendecomposition이란 대각화된 행렬을 다시 원래대로 복원하는
 
   
 
+# 11. 특이값 분해 (SVD, Singular Value Decomposition)
+
+특이값 분해는 rectangular matrix, 즉, 
+$$
+A\in R^{m*n}
+$$
+의 경우에 사용된다. 
+$$
+A=U\Sigma V^T
+$$
+위 식으로 분해하는 것을 특이값 분해라고 한다. 
+
+여기서 중요한 것은, U와 V는 모두 orthogonal한 vector를 가지며,  시그마는 diagonal matrix여야 한다.
+
+( U의 column vector들이 orthonomal, V^T의 row vector들이 orthonomal ) 
+
+![image-20220107164404996](../../../../AppData/Roaming/Typora/typora-user-images/image-20220107164404996.png)
+
+=> U : mxm, V^T : nxn
+
+위 그림에서 아래 빨간색 사각형은 SVD의 reduce form이라고 하고, 위의 식과 정확히 일치한다. 
 
 
 
+- **orthonomal 한 특정 (U, V)찾기**
 
+  orthonomal한 U와 V는 무수히 많다. 그람슈미츠 방법을 사용할 때를 생각해보면 첫번째 벡터와, 그에 orthogonal한게 만든 두번째 벡터를 구할 수 있고, 이 둘의 순서를 바꾼다고 해도 orthonomal한 벡터를 찾을 수 있다. 즉, 영역에 대해 span하는 orthonomal한 벡터의 조합은 여러개가 나올 수 있다는 뜻이다. U,V도 마찬가지로 여러개가 나올 수 있지만, 여기서 특정한 U,V의 조합을 찾으려고 한다. 
 
+  이 때 아래 수식을 이용한다. 
+  $$
+  Av_i=\sigma_iu_i
+  $$
+  이렇게 u와 v를 jointly해서 특정한 orthonomal한 vector들을 찾을 수가 있다. 
 
+  즉, 아래 식과 같다고 할 수 있다. 
+  $$
+  AV=U\Sigma\Leftrightarrow\begin{bmatrix}Av_1&Av_2&...&Av_n\end{bmatrix}=\begin{bmatrix}\sigma_1u_1&\sigma_2u_2&...&\sigma_nu_n\end{bmatrix}
+  $$
+  또한, 
+  $$
+  V\in R^{n*n}이므로\\
+  V^{-1}=V^T인\; 것을\; 알\; 수\; 있다.\\\\
+  결과적으로\\
+  AV=U\Sigma\Leftrightarrow A=U\Sigma V^T\\
+  가\;된다. 
+  $$
 
-
-
-
-
-
-
-
-
+- 
 
 
 
