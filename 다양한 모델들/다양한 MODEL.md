@@ -287,7 +287,7 @@
   - 그 외
 
     - bottleneck layer와 transition layer에서 feature map의 사이즈를 줄이지만, Dense block내에서의 layer들 사이의 connection을 통해 layer의 output feature map 개수를 크게 줄일 수 있다 (다음 layer의 input으로 이전 layer들에서의 feature map을 concatenate하기 때문에).
-    -  dense block에서 이전 layer들의 feature map을 재사용함으로 output feature map을 크게 줄이고, size도 줄일 수 있기 때문에 computational efficiency를 높일 수 있다. (parameter 개수가 줄어드는 것 -> 딥러닝에서 중요한 것은 parameter의 수를 줄이면서 좋은 성능을 내는 것이기 때문에 바람직하다.)
+    - dense block에서 이전 layer들의 feature map을 재사용함으로 output feature map을 크게 줄이고, size도 줄일 수 있기 때문에 computational efficiency를 높일 수 있다. (parameter 개수가 줄어드는 것 -> 딥러닝에서 중요한 것은 parameter의 수를 줄이면서 좋은 성능을 내는 것이기 때문에 바람직하다.)
     - shortcut을 만드는 것으로, 트레이닝 시간을 줄이고, 확률적으로 layer를 drop하는 것이 generalize performance의 향상으로 이어진다. 
     - 최종 결과물이 모든 feature map을 기반으로 결정을 내리기 때문에 좋은 결과를 낼 가능성이 높아진다. 
 
