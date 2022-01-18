@@ -139,7 +139,8 @@
 
 - **Architecture**
 
-  ![image-20211229153759819](../../../../AppData/Roaming/Typora/typora-user-images/image-20211229153759819.png)
+  ![image](https://user-images.githubusercontent.com/71866756/149939996-b05cf8a8-b6e1-4a86-bc26-e21aa3ae8513.png)
+
 
   - input image
 
@@ -175,7 +176,7 @@
 
     Overlapping pooling 기법을 사용하였다. 요즘에는 보통 pooling하는 size와 stride를 일치시키지만, 이 모델에서는 overlapping하여 pooling을 진행한다. 
 
-    <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211229151424873.png" alt="image-20211229151424873" style="zoom:67%;" />
+    ![image](https://user-images.githubusercontent.com/71866756/149940054-fce9241d-61a0-4821-a426-fe113bf469e4.png)
 
   - FC layer
 
@@ -199,7 +200,7 @@
 
     - Local Response Normalization
 
-      ![image-20211229153456842](../../../../AppData/Roaming/Typora/typora-user-images/image-20211229153456842.png)
+      ![image](https://user-images.githubusercontent.com/71866756/149940119-22d3b4da-bfce-44ad-a11a-9d794918b9cc.png)
 
       : 강한 자극이 주변의 약한자극을 전달하는 것을 막는 효과를 준다. conv filter의 결과가 매우 높다면 그 주변 conv filter의 결과값이 상대적으로 작아진다. 
 
@@ -207,9 +208,7 @@
 
 - **결과**
 
-  <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211229153827951.png" alt="image-20211229153827951" style="zoom:67%;" />
-
-  <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20211229153840299.png" alt="image-20211229153840299" style="zoom:67%;" />
+  ![image](https://user-images.githubusercontent.com/71866756/149940158-ab9df865-678e-4939-a722-f2056527ddc7.png)
 
 
 
@@ -292,17 +291,15 @@
 
 - **종류 및 구조**
 
-  ![image-20220118213639465](../../../../AppData/Roaming/Typora/typora-user-images/image-20220118213639465.png)
+  ![image](https://user-images.githubusercontent.com/71866756/149940234-e2c5d1a0-8cc1-414b-a71f-4e01d83bb6b8.png)
 
   
 
 - **결과**
 
-  ![image-20220118213830500](../../../../AppData/Roaming/Typora/typora-user-images/image-20220118213830500.png)
+  ![image](https://user-images.githubusercontent.com/71866756/149940324-b0202350-c0bf-436a-bf0f-b2cd762b42f1.png)
 
-  ![image-20220118214436559](../../../../AppData/Roaming/Typora/typora-user-images/image-20220118214436559.png)
-
-  ![image-20220118214522452](../../../../AppData/Roaming/Typora/typora-user-images/image-20220118214522452.png)
+  ![image](https://user-images.githubusercontent.com/71866756/149940382-69e301d6-071e-46b9-bb4a-e851462f3532.png)
 
   - 위 설명에서는 data augmentation 없이도 다른 network보다 우수한 성능을 낸다고 나와있다. (dropout은 사용)
 
