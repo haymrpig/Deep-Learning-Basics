@@ -231,6 +231,10 @@
 
 - **Architecture**
 
+  ![image-20220118215027703](../../../../AppData/Roaming/Typora/typora-user-images/image-20220118215027703.png)
+
+  ![image-20220118215009417](../../../../AppData/Roaming/Typora/typora-user-images/image-20220118215009417.png)
+
   - input image
 
     - input image size 224x224 RGB
