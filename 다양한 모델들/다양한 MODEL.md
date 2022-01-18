@@ -215,3 +215,101 @@
 
 
 
+# 4. DenseNet
+
+- **목적**
+
+  이전의 연구에서 증명됐듯이, input과 output에 가까운 layer들의 connection이 짧을 수록 training에 효율적이며, 더 정확하고, 대체로 더 깊어질 수 있다.  따라서 DenseNet에서는 feed forward 방향으로 모든 layer들이 연결되어 있으며, 각 layer의 feature map은 그 다음 layer의 input으로 들어가게 된다. 이러한 구조로 ResNet보다 더 적은 parameter들로 CIFAR-10, CIFAR-100, SVHN, ImageNet 데이터들을 학습시킨 결과 의미있는 향상을 보였다. 
+
+  이러한 dense한 연결성 때문에 DenseNet이라 부르게 되었다. 
+
+  
+
+- **용어 정리**
+
+  
+
+- **Architecture**
+
+  - input image
+
+    - input image size 224x224 RGB
+
+      
+
+  - Dense block
+
+    - 이전 layer들의 feature map이 입력으로 들어가기 위해서 concatenation이 적용되고, concatenation이 적용되기 위해서는 feature map의 사이즈가 동일해야 한다. 따라서 down sampling이 필요하며, 이 과정을 반복적으로 수행하는 것이 dense block이다. 
+
+    - 총 3개의 Dense block으로 구성
+
+      
+
+  - transition layers
+
+    - Dense block 사이의 layer를 지칭한다. 
+
+    - Batch normalization , 1x1 conv, 2x2 average pooling으로 구성되어 있다. 
+
+      
+
+  - Bottleneck layers
+
+    - 1x1 conv로 구성되어 있으며, 3x3 conv 이전에 feature map의 사이즈를 줄이기 위한 layer이다.  
+
+    - 1x1 conv를 통해 4*k의 feature map을 생성한다. ( k는 임의 조정 ) 
+
+      
+
+  - Conv
+
+    - 3x3 conv의 경우, zero-padding으로 feature map의 사이즈는 동일하게 유지한다.
+
+       
+
+  - Growth rate
+
+    - dense block 내의 레이어는 k개의 feature map을 생성하고, 이 k를 growth rate이라고 한다. 
+
+    - growth rate은 각 레이어가 전체에 어느정도 기여를 할 것인지 결정한다. 
+
+      
+
+  - 마지막 단
+
+    - global average pooling과 softmax 적용
+
+      
+
+  - 그 외
+
+    - bottleneck layer와 transition layer에서 feature map의 사이즈를 줄이지만, Dense block내에서의 layer들 사이의 connection을 통해 layer의 output feature map 개수를 크게 줄일 수 있다 (다음 layer의 input으로 이전 layer들에서의 feature map을 concatenate하기 때문에).
+    -  dense block에서 이전 layer들의 feature map을 재사용함으로 output feature map을 크게 줄이고, size도 줄일 수 있기 때문에 computational efficiency를 높일 수 있다. (parameter 개수가 줄어드는 것 -> 딥러닝에서 중요한 것은 parameter의 수를 줄이면서 좋은 성능을 내는 것이기 때문에 바람직하다.)
+    - shortcut을 만드는 것으로, 트레이닝 시간을 줄이고, 확률적으로 layer를 drop하는 것이 generalize performance의 향상으로 이어진다. 
+    - 최종 결과물이 모든 feature map을 기반으로 결정을 내리기 때문에 좋은 결과를 낼 가능성이 높아진다. 
+
+
+
+- **종류 및 구조**
+
+  ![image-20220118213639465](../../../../AppData/Roaming/Typora/typora-user-images/image-20220118213639465.png)
+
+  
+
+- **결과**
+
+  ![image-20220118213830500](../../../../AppData/Roaming/Typora/typora-user-images/image-20220118213830500.png)
+
+  ![image-20220118214436559](../../../../AppData/Roaming/Typora/typora-user-images/image-20220118214436559.png)
+
+  ![image-20220118214522452](../../../../AppData/Roaming/Typora/typora-user-images/image-20220118214522452.png)
+
+  - 위 설명에서는 data augmentation 없이도 다른 network보다 우수한 성능을 낸다고 나와있다. (dropout은 사용)
+
+  - 위에서 '+'는 표준 data augmentation인 mirroring과 shifting을 의미한다. 
+
+  - optimizer로는 SGD를 사용 (weight decay=10^-4, momentum=0.9)
+
+  - `CIFAR와 SVHN` : 초기 learning rate=0.1이지만, epoch의 50%일 때, 10으로 나누고, 75%일 때 10으로 다시 나눠준다.
+
+    `ImageNet`  : 초기 learning rate=0.1, 30 epoch=0.01, 60 epoch=0.001 
