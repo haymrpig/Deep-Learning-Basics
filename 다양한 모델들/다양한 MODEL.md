@@ -4,7 +4,7 @@
   1. [VGGNet](#1-vggnet)
   2. [ResNet](#2-resnet)
   2. [AlexNet](#3-alexnet)
-  2. DenseNet
+  2. [DenseNet](#4-densenet)
   2. SENet
   2. MobileNet
   2. SqueezeNet
@@ -230,9 +230,7 @@
 
 - **Architecture**
 
-  ![image-20220118215027703](../../../../AppData/Roaming/Typora/typora-user-images/image-20220118215027703.png)
-
-  ![image-20220118215009417](../../../../AppData/Roaming/Typora/typora-user-images/image-20220118215009417.png)
+  ![image](https://user-images.githubusercontent.com/71866756/149940719-9f4c37fe-291d-479a-95fa-56219a20488a.png)
 
   - input image
 
