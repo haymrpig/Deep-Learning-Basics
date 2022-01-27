@@ -78,4 +78,15 @@
    							# True/False
    ```
 
+10. os.path.abspath()
+
+   : 해당 파일의 절대경로를 가져올 수 있다. 
+
+   ```python
+   os.path.abspath("./hong.txt")
+   # C:/content/hong.txt
+   ```
+
+   
+
    
