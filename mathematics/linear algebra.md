@@ -114,13 +114,8 @@
 
   기저벡터라고 하며, 기저벡터는 주어진 subspace를 fully span하며 선형 독립이여야 한다.
 
-   즉, full span이라는 의미는 2차원을 예로 들면 2개의 벡터를 사용든, 3개의 벡터를 사용하든 한 평면을 모두 표현가능해야 한다는 의미이다. 
-  $$
-  예를\; 들어, H=Span\{v_1,v_2,v_3\}이\; 있다고 \;했을\; 때,\\
-  Span\{v_1, v_2\}로\; 충분히\; H를\; 표현할\; 수\; 있다고\; 하면,\\
-  \{v_1,v_2\}가\; H의\; 기저벡터라고\; 할\; 수\; 있다.\\
-  ({v_1}은 \;기저벡터가\; 아니다.)
-  $$
+   즉, full span이라는 의미는 2차원을 예로 들면 2개의 벡터를 사용든, 3개의 벡터를 사용하든 한 평면을 모두 표현가능해야 한다는 의미이다.   
+  ![image](https://user-images.githubusercontent.com/71866756/152662994-bbcb488a-0f38-4994-8837-3c859fb68dc5.png)  
   
   
   - **기저 벡터는 unique하지 않다!**
@@ -129,7 +124,7 @@
   
     ( 단, 이 벡터의 조합은 선형독립이며 fully span해야 한다. )
   
-    <img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20220205194807938.png" alt="image-20220205194807938" style="zoom:50%;" />
+    ![image](https://user-images.githubusercontent.com/71866756/152663007-0520fae2-eb40-4f92-a365-b0fa68db4d06.png)
   
     >위 그림처럼 어떠한 공간이 주어지고, 특정한 점이 주어졌을 때, 우리는 그 공간을 fully span하는 기저벡터를 여러개 찾을 수 있다. 
     >
@@ -143,11 +138,8 @@
   
   - **Column space**
   
-    열벡터가 subspace인 경우
-    $$
-    A=\begin{bmatrix}1\;1\;2\\1\;0\;1\\0\;1\;1\end{bmatrix}일 때,
-    \\Col A=Span\{\begin{bmatrix}1\\1\\0\end{bmatrix},\begin{bmatrix}1\\0\\1\end{bmatrix},\begin{bmatrix}2\\1\\1\end{bmatrix}\}=Span\{\begin{bmatrix}1\\1\\0\end{bmatrix},\begin{bmatrix}1\\0\\1\end{bmatrix}\}\\(\begin{bmatrix}2\\1\\1\end{bmatrix}은\;  \begin{bmatrix}1\\1\\0\end{bmatrix}과\;\begin{bmatrix}1\\0\\1\end{bmatrix}의\; 선형결합으로\; 표현되므로)
-    $$
+    열벡터가 subspace인 경우  
+    ![image](https://user-images.githubusercontent.com/71866756/152663014-08cacad9-3139-414c-bdc5-47e20cc88ac3.png)  
     
 
 # 3. 선형독립/종속
