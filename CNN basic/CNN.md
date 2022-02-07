@@ -26,6 +26,8 @@
    - Maxout
    - tanh
 7. [**Regularization**](#7-regularization)
+8. [**History**](#8-history)
+9. [**CV Applications**](9-cv-applications)
 
 # 1. Convolution 연산
 
@@ -51,15 +53,15 @@
 
     - 출력은 커널개수만큼 나온다. 
 
-- 용어 정리
+- **용어 정리**
 
-  - Stride
+  - **Stride**
 
     커널을 입력 데이터에 convolution연산할 시 몇 칸씩 뛰어넘을지를 의미
 
     ![image](https://user-images.githubusercontent.com/71866756/144757767-9ba785e7-1ee1-47ac-a616-d5390fb68b2d.png)
 
-  - Padding
+  - **Padding**
 
     출력 크기 계산 수식을 이용하면 출력의 크기는 입력보다 작아지게 된다. 따라서 이 경우는 Padding이 없는 경우이며, 만약 padding이 있는 경우에는 입력의 최외곽 일정 크기만큼을 일정한 수로 채우는 것을 의미한다. 
 
@@ -70,13 +72,13 @@
 
     ![image](https://user-images.githubusercontent.com/71866756/144757798-477e4037-fb61-4bca-8953-0546454a4abf.png)
     
-  - Max Pooling
+  - **Max Pooling**
   
     input의 크기가 클 경우 max pooling을 이용하여 parameter들을 효과적으로 줄여줄 수 있다. 
     
     ![image](https://user-images.githubusercontent.com/71866756/144823862-02085478-618f-47a0-bc57-3316e8c77754.png)
     
-  - Dilated convolution
+  - **Dilated convolution**
   
     해당 값이 1일 경우 일반적인 convolution과 같지만,  2 이상일 경우 kernel 사이 간격을 조정하여 convolution 연산을 실행한다. 예를 들어 저해상도에서 고해상도로 만들 때 사용하기도 한다. 
     
@@ -142,8 +144,10 @@ chain rule을 이용하여 backward로 각각의 parameter들이 cost에 미치�
 
 - **Generalization**
 
-  trainig error와 test error사이의 차이를 generalization gap이라고 한다. Generalization Performance가 좋다라는 것은 학습한 결과가 test data에서도 잘 동작하는 것을 의미한다. 
+  `generalization gap` : trainig error와 test error사이의 차이
 
+  > Generalization Performance가 좋다라는 것은 학습한 결과가 test data에서도 잘 동작하는 것
+  
   
 
 ![image](https://user-images.githubusercontent.com/71866756/144757915-aa963733-a769-4b35-9fe5-7a62a174534e.png)
@@ -160,13 +164,19 @@ chain rule을 이용하여 backward로 각각의 parameter들이 cost에 미치�
 
 - **Cross-validation**
 
+  K fold validation과 같은 의미
+
   해당 모델의 Generalization Performance를 높이기 위한 방법으로 하나의 데이터셋을 train data와 validation data, test data로 구분하는 것을 의미한다. 
 
 - **Bias & Variance**
 
   ![image](https://user-images.githubusercontent.com/71866756/144757934-01852996-8f87-4edb-a66b-d0c1680bc3cf.png)
 
-  - Bias와 Variance는 Tradeoff 관계이다. 
+  `Variance` : variance가 클 경우, 입력마다 출력이 매우 다르게 분포하므로 overfitting의 문제점이 있다. 
+
+  `Bias` : bias가 낮다는 것은 비슷한 입력들에 대해서 평균이 원하는 결과와 비슷한 경우를 의미한다. 
+
+  - **Bias와 Variance는 Tradeoff 관계이다.** 
 
     cost function의 경우 bias, variance, noise를 포함하고 있기 때문에 bias가 낮은 경우 그에 따라 자연스럽게 variance는 높을 수 밖에 없다. 그 반대 역시 마찬가지이다. 
 
@@ -176,11 +186,11 @@ chain rule을 이용하여 backward로 각각의 parameter들이 cost에 미치�
 
   학습 데이터가 주어졌을 때, 그 학습데이터를 여러개의 sub data로 나누어 여러 모델을 만드는 것을 의미한다. 
 
-  - Bagging( bootstrapping aggregating )
+  - **Bagging( bootstrapping aggregating )**
 
     bootstrapping을 통해 학습한 여러 모델들의 output의 평균을 내는 것으로 보통 한개의 모델을 이용하는 것보다 이런 모델들의 output의 평균을 이용하는 것이 더 좋은 경우가 많다. 
 
-  - boosting
+  - **boosting**
 
     한 모델을 학습할 때, 결과가 제대로 나오지 않는 데이터셋에 대해서 또 다른 모델을 만들고, 여러개의 모델을 sequence로 연결하여 강한 모델을 만드는 방법
 
@@ -196,15 +206,15 @@ chain rule을 이용하여 backward로 각각의 parameter들이 cost에 미치�
 
   ![image](https://user-images.githubusercontent.com/71866756/144758090-898246d5-30a7-4a8a-9397-a0c8059eba0a.png)
 
-  - mini-batch gradient descent
+  - **mini-batch gradient descent**
 
     전체 데이터가 아닌, 그보다 작은 batch 사이즈로 gradient를 업데이트 하는 것
 
-  - batch gradient descent
+  - **batch gradient descent**
 
     데이터 전체를 이용하여 한번에 업데이트 하는 것
 
-  - batch 사이즈에 따른 특징
+  - **batch 사이즈에 따른 특징**
 
     batch 사이즈가 매우 큰 경우, 오른쪽 그림처럼 sharp minimum이 된다. 즉, 같은 위치에서 training한 결과는 minimum이지만, test한 결과가 매우 높은 값을 나타낼 수 있다. 
 
@@ -216,7 +226,9 @@ chain rule을 이용하여 backward로 각각의 parameter들이 cost에 미치�
 
 - **Momentum**
 
-  베타값이 들어가서 현재 weight를 이전 batch size만큼 학습했을 때의 weight에서 특정값을 곱하여 뺀다. 즉, 과거의 gradient를 어느정도 유지하여 gradient의 변화 폭이 커도 어느정도 학습이 잘 된다는 장점이 있다. 
+  베타값이 들어가서 현재 weight를 이전 batch size만큼 학습했을 때의 weight에서 특정값을 곱하여 뺀다. 
+
+  즉, 이전 batch의 gradient를 어느정도 유지하여 gradient의 변화 폭이 커도 어느정도 학습이 잘 된다는 장점이 있다. 
 
   ![image](https://user-images.githubusercontent.com/71866756/144758124-980e7e0f-9408-4316-91bf-c7f6e2b1cb2c.png)
 
@@ -224,27 +236,43 @@ chain rule을 이용하여 backward로 각각의 parameter들이 cost에 미치�
 
   Momentum과 비슷하지만, lookahead로 한번 더 이동하여 그 위치에서 계산한 값을 현재 계산에 넣어주어 좀 더 빠르게 minimum을 찾을 수 있다.
 
+  수렴하는 속도가 빠르다. (이론적으로 증명이 가능하다.)
+
   ![image](https://user-images.githubusercontent.com/71866756/144758145-20c7dfff-1933-4541-80ab-b080f64496d6.png)
 
 - **Adagrad**
 
-  값이 많이 변한 parameter들에 대해서는 적게 변화시키고, 값이 적게 변한 parameter들에 대해서는 많이 변화시키는 방법으로 이전 parameter들의 변화를 기록하고 있어야 하며, 이 값은 학습이 진행될 수록 축적이 되어 커지기 때문에 오랜 시간 학습을 진행할 경우 weight의 변화가 줄어들어 학습이 제대로 안될 가능성이 있다. 
+  값이 많이 변한 parameter들에 대해서는 적게 변화시키고, 값이 적게 변한 parameter들에 대해서는 많이 변화시키는 방법이다. 
+
+  이전 parameter들의 변화를 기록하고 있어야 하며, 이 값은 학습이 진행될 수록 축적이 되어 G_t가 커지기 때문에 오랜 시간 학습을 진행할 경우 분모가 무한히 커져 전체적인 값이 0에 가까워진다. 
+
+  즉, 학습이 오랫동안 지속할 경우, 변화가 점점 작아지고 학습이 안될 가능성이 있다.  
 
   ![image](https://user-images.githubusercontent.com/71866756/144758151-bf70d5ab-fc1f-4a48-a92e-ef83dcf8469b.png)
 
 - **Adadelta**
 
-  Adagrad의 문제를 해결하기 위해서 window값을 지정해준다. 즉, Adagrad처럼 값이 축적되어 커지진 않고, 만약 parameter의 개수가 클 경우에 메모리 문제가 발생할 수 있으니 감마를 이용하여 어느정도 완화시켜준다. Adadelta의 경우 learning rate가 없다는 단점이 있다. 
+  Adagrad의 문제를 해결하기 위해서 window값을 지정해준다. 
 
-  - EMA ( Exponential Moving Average )
+  즉, Adagrad처럼 값이 축적되어 커지진 않고, 만약 parameter의 개수가 클 경우에 메모리 문제가 발생할 수 있으니 감마를 이용하여 어느정도 완화시켜준다. 
 
-    EMA는 이동평균법으로 평균과의 가장 큰 차이점은 시간이라는 개념이다. 평균은 같은 시간대에서 산출되는 것이 흔한 반면, 이동평균은 동일대상을 서로 다른 시점에서 구한다는 점이 차이점이다. moving average filter를 생각하면 이해가 빠르다. 
+  Adadelta의 경우 learning rate가 없다는 단점이 있다. 
+
+  - **EMA ( Exponential Moving Average )**
+
+    `EMA`는 이동평균법으로 평균과의 가장 큰 차이점은 시간이라는 개념이다. 
+    
+    평균은 같은 시간대에서 산출되는 것이 흔한 반면, 이동평균은 동일대상을 서로 다른 시점에서 구한다는 점이 차이점이다. 
+    
+    moving average filter를 생각하면 이해가 빠르다. 
+    
+    H_t는 weight의 변화량을 의미하는데, 이 값을 넣어주기 때문에, learning rate가 없는 것이다. 
 
   ![image](https://user-images.githubusercontent.com/71866756/144758225-35daeabe-4e5c-4920-b7aa-540e8567b1bc.png)
 
 - **RMSprop**
 
-  Adadelta에 step size, 즉 learning rate을 추가한 방법이다. 
+  Adadelta에 step size, 즉 learning rate을 추가한 방법이다. (실험적으로 증명되었다.)
 
   ![image](https://user-images.githubusercontent.com/71866756/144758204-610fe652-0d4b-41b7-aa22-1877989adb27.png)
 
@@ -314,6 +342,28 @@ chain rule을 이용하여 backward로 각각의 parameter들이 cost에 미치�
 
 overfitting을 방지하기 위한 여러가지 기법들을 의미한다. 
 
+- **Early Stopping**
+
+  validation error가 커지기 시작하는 시점에서의 학습을 중단하는 것을 의미한다. 
+
+- **Parameter Norm Penalty**
+
+  전체적인 Parameter의 값을 낮춘다는 의미이다. 
+  $$
+  total\; cost = loss(D;W) +\frac{\alpha}{2}||W||_2^2
+  $$
+  전체적인 parameter의 값 (절대값)이 작을수록, model의 function space가 더 부드러질 것이며, 부드러운 function일수록 generalize가 잘 될 것이다라는 가정을 내포하고 있다. 
+
+- **Data Augmentation**
+  - Noise Robustness (add random noise inputs or weights)
+  - label smoothing
+- **Batch Normalization**
+  - batch norm
+  - layer norm
+  - Instance norm
+  - group norm
+
+
 - **dropout**
 
   layer에서 몇몇 parameter들이 다음 layer로 가는 것을 막는다는 아이디어이다.
@@ -334,17 +384,16 @@ overfitting을 방지하기 위한 여러가지 기법들을 의미한다.
 
       ![image](https://user-images.githubusercontent.com/71866756/146974137-41c3f95e-71c5-4152-9cbe-0ff83e454dee.png)
 
-
-    - RBM 동작 방식
-
-      1. 첫 layer input x가 들어왔을 때 학습을 통해 출력 y가 결정되고, 출력 y로 다시 x를 복원할 수 있도록 학습을 시켜 weight를 setting한다. ( pre-training 단계에서 RBM을 몇번을 학습해야 하는지는 연구가 되었지만, 정확하게 나온 결과는 없다. )
-      2. setting된 weight는 fix한다.
-      3. 다음 layer도 똑같은 방식으로 진행한다.
-      4. RBM을 통해 tuning된 weight로 back propagation을 통해 기존 방식처럼 학습을 진행하는 것을 Fine-tuning이라고 한다. 
-
-      ![image](https://user-images.githubusercontent.com/71866756/146974246-fbec33c8-fe90-4964-b987-ca08c0342d97.png)
-
-      -> 요즘에는 잘 사용하지 않는 방식이다. ( 계산 방식이 복잡하기 때문에 )
+> - RBM 동작 방식
+>
+>   1. 첫 layer input x가 들어왔을 때 학습을 통해 출력 y가 결정되고, 출력 y로 다시 x를 복원할 수 있도록 학습을 시켜 weight를 setting한다. ( pre-training 단계에서 RBM을 몇번을 학습해야 하는지는 연구가 되었지만, 정확하게 나온 결과는 없다. )
+>   2. setting된 weight는 fix한다.
+>   3. 다음 layer도 똑같은 방식으로 진행한다.
+>   4. RBM을 통해 tuning된 weight로 back propagation을 통해 기존 방식처럼 학습을 진행하는 것을 Fine-tuning이라고 한다. 
+>
+>   ![image](https://user-images.githubusercontent.com/71866756/146974246-fbec33c8-fe90-4964-b987-ca08c0342d97.png)
+>
+>   -> 요즘에는 잘 사용하지 않는 방식이다. ( 계산 방식이 복잡하기 때문에 )
 
   - **Xavier**
 
@@ -392,9 +441,107 @@ overfitting을 방지하기 위한 여러가지 기법들을 의미한다.
 
 
 
+# 8. History
+
+2012 - AlexNet
+
+2013 - DQN
+
+2014 - Encoder/Decoder, Adam
+
+2015 - GAN, ResNet
+
+2017 - Transformer
+
+2018 - Bert
+
+2019 - Big Language Models(GPT-X)
+
+2020 - Self-Supervised Learning(SimCLR)
+
++SPPNet+Fast R-CNN
+
+# 9. CV Applications
+
+### 9-1. Semantic Segmentation
+
+- **Convolutionalization**
+
+  input -> flatten -> dense -> output 을
+
+  input -> Conv -> output으로 변경하는 것을 의미한다. 
+
+  >input : 16x4x4
+  >
+  >output : 10x1x1
+  >
+  >1. flatten 후, dense후 output으로 내보내기 위한 파라미터는 16x4x4x10 = 2560
+  >
+  >2. 4x4 conv를 이용하는 경우 파라미터는 16x4x4x10 = 2560
+  >
+  >위 두 방법의 parameter의 개수는 똑같다. 
+
+  그렇다면 Fully Convolutional Network를 왜 쓰냐?
+
+  바로, **input 이미지의 크기에 상관없이 output을 뽑아낼 수 있으며, semantic segmentation의 경우, heatmap으로 결과를 내보낼 수 있기 때문**이다. 
+
+  fully connected layer의 경우 reshape이 들어가기 때문에, input 크기가 달라지면 모델을 수정하거나, 데이터를 resize를 해야 한다. 
+
+  하지만, fully convolutional network는 input 사이즈가 달라져도 output사이즈의 변화가 있을 뿐, 모델을 수정할 필요가 없다. 
+
+- **Deconvolution (conv transpose)**
+
+  convolution의 엄밀히 말하면 역연산은 아니지만, 비슷한 동작을 한다.
+
+  (parameter 계산 방법은 똑같다.) 
 
 
 
+### 9-2. Detection
+
+- **R-CNN**
+
+  이미지에서 bbox을 여러개 임의로 뽑아낸다. -> region에 대한 feature를 CNN을 통해 얻은 후 SVM으로 분류 진행
+
+  - 문제점
+
+    뽑아낸 bbox에 대해서 CNN을 다 통과시켜야 하므로, 오래 걸린다. 
+
+    즉, 2000개의 bbox를 뽑아냈으면, 모델을 2000번 돌리는 것과 마찬가지이다. 
+
+- **SPPNet**
+
+  이미지에서 여러개의 bbox를 뽑되, conv연산은 전체 이미지에 대해서 적용하고, feature map에서 원래 bbox의 위치의 tensor값들을 뽑아온다는 idea
+
+  따라서, Conv을 한번 돌리기 때문에, R-CNN보다 훨씬 빠르다. 
+
+- **Fast R-CNN**
+
+- **Faster R-CNN**
+
+  - **Region proposal**
+
+    `anchor box` : 미리 정해놓은 bbox (고정된 크기의 bbox들)
+
+    `anchor box`에 object가 있을 확률을 계산한다. 
+
+  - **9-4-2**
+
+    9 : (128, 256, 512) 사이즈의 bbox와, 가로:세로 = (1:1, 1:2, 2:1)로 총 3x3=9가지의 anchor box를 이용한다. 
+
+    4 : x길이, y길이, x offset, y offset의 총 네가지의 변화를 줄 숭수 있는 parameter를 정의
+
+    2 : 해당 bbox가 쓸모있는지/없는지 판단하는 2 parameter
+
+    따라서, fully convolutional layer가 9*(4+2)의 output을 가지게 된다. 
+
+- **YOLO**
+
+  Region Proposal 없이 바로 bbox를 예측한다. 
+
+  그렇기에 Faster R-CNN보다 빠르다. 
+
+  
 
 
 
