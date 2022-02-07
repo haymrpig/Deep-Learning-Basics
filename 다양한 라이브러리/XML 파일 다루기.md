@@ -14,7 +14,7 @@ import xml.etree.ElementTree as et
 
 - tree 구조의 파일에서 원하는 값 읽어오기
 
-  <img src="C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220207222319367.png" alt="image-20220207222319367" style="zoom:67%;" />
+  ![image](https://user-images.githubusercontent.com/71866756/152807659-44ccac13-b03c-4387-bc3b-f7ab9e8eefc6.png)
 
   ```python
   # bbox 예제이다. 
