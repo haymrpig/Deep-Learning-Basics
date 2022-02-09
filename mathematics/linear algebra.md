@@ -197,8 +197,18 @@
 > 하지만, y=3x+2를 [3 2]그리고 [x 1].T라고 생각했을 때 (R^2 -> R^1)는 같은 결과가 나오기 때문에 선형 변환이 성립한다.
 >
 > 즉, bias항을 차원의 일부로 넣어줌으로써, 선형변환으로 만들 수 있는 것이다. 
+>
+> (bias는 input feature의 일부로 들어가게 되고, 그에 따른 weight는 1로 설정한다.)
 
+![image-20220209233412160](../../../../AppData/Roaming/Typora/typora-user-images/image-20220209233412160.png)
 
+위의 그림은 bias 항이 feature의 일부로 포함되어 선형변환이 된 경우를 의미한다. 
+
+여기서 중간 layer를 `fully connected layer` 혹은 `affine layer`라고 부른다. 
+
+여기서의 layer는 선형변환인데 왜 linear layer라고 부르지 않는 걸까?
+
+그 이유는 bias 항이 추가되어 선형변환이 되었기 때문!! 
 
 - **용어 정리**
 
