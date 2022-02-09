@@ -200,7 +200,7 @@
 >
 > (bias는 input feature의 일부로 들어가게 되고, 그에 따른 weight는 1로 설정한다.)
 
-![image-20220209233412160](../../../../AppData/Roaming/Typora/typora-user-images/image-20220209233412160.png)
+![image](https://user-images.githubusercontent.com/71866756/153223210-85e6d75b-f587-455d-8a96-d3fcabc53554.png)
 
 위의 그림은 bias 항이 feature의 일부로 포함되어 선형변환이 된 경우를 의미한다. 
 
