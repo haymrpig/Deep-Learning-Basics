@@ -13,6 +13,10 @@ import zipfile
   ap = zipfile.open('filename')
   ap.extractall('dest path')
   ap.close()
+  
+  ##################
+  
+  zipfile.ZipFile("filename").extractall('dest path')
   ```
 
 - **tar.gz 압축해제**
@@ -20,7 +24,7 @@ import zipfile
   ```python
   ap = tarfile.open('filename')
   ap.extractall('dest path')
-  ap.close()ap = 
+  ap.close()
   ```
 
   
